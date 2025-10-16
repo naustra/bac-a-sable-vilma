@@ -38,12 +38,12 @@ API_HEADERS = {
 def check_api_keys():
     """Vérifie si les clés API sont configurées"""
     missing_keys = []
-    
+
     if not API_KEYS['unsplash']:
         missing_keys.append('UNSPLASH_API_KEY')
     if not API_KEYS['pexels']:
         missing_keys.append('PEXELS_API_KEY')
-    
+
     if missing_keys:
         print("⚠️  Clés API manquantes:")
         for key in missing_keys:
@@ -55,26 +55,26 @@ def check_api_keys():
         print("      export UNSPLASH_API_KEY='votre_cle'")
         print("      export PEXELS_API_KEY='votre_cle'")
         return False
-    
+
     return True
 
 def get_available_sources():
     """Retourne les sources disponibles selon les clés API configurées"""
     sources = ['wikipedia', 'wikimedia']  # Toujours disponibles
-    
+
     if API_KEYS['unsplash']:
         sources.append('unsplash')
     if API_KEYS['pexels']:
         sources.append('pexels')
-    
+
     return sources
 
 if __name__ == "__main__":
     print("🔑 Configuration des APIs")
     print("=" * 40)
-    
+
     sources = get_available_sources()
     print(f"✅ Sources disponibles: {', '.join(sources)}")
-    
+
     if not check_api_keys():
         print("\n⚠️  Certaines sources ne seront pas disponibles")
