@@ -2,54 +2,108 @@
 alwaysApply: true
 ---
 
-# Générateur de documents éducatifs en macédonien
+# Générateur de documents éducatifs en macédonien avec IA CLIP
 
 ## 🎯 Objectif
 
-Créer des documents Word (.docx) avec grilles d'images et noms en **macédonien cyrillique**.
+Créer des documents Word (.docx) avec grilles d'images et noms en **macédonien cyrillique**, avec sélection automatique des meilleures images par **IA CLIP**.
 
 ## 📁 Structure
 
 ```
 bac-a-sable-vilma/
-├── telecharger_images_wikimedia.py      # Module de téléchargement
-├── creer_corpus_humain_wikimedia.py     # Script automatique
-├── generer_document_theme.py            # Générateur .docx
+├── create_theme.py                      # 🎨 Créateur de thèmes
+├── telecharger_images.py                # 📸 Téléchargeur multi-sources
+├── telecharger_images_clip.py           # 🧠 Téléchargeur + scoring CLIP
+├── scorer_images_clip.py                # 🧠 Module scoring IA CLIP
+├── generer_document.py                  # 📄 Générateur Word
+├── telecharger_images_unified.py        # 🔧 Module téléchargement
+├── config_api.py                        # 🔑 Configuration APIs
+├── convertir_images.py                  # 🔄 Conversion JPEG
+├── requirements.txt                     # 📦 Dépendances Python
 └── themes/
-    └── corps_humain/
-        ├── photos/                      # Images téléchargées
-        ├── selection.json               # Configuration
-        └── Corps Humain.docx            # Document généré
+    └── {theme}/
+        ├── config.json                  # Configuration du thème
+        ├── photos/                      # Images téléchargées (10 par élément)
+        ├── selection.json               # Images sélectionnées par CLIP
+        ├── scoring_report.json          # 📊 Rapport détaillé CLIP
+        └── {Theme}.docx                 # Document généré
 ```
 
 ## 🚀 Usage rapide
 
 ```bash
-# Tout en une commande (téléchargement + génération)
-python creer_corpus_humain_wikimedia.py
+# 1. Créer un thème (ex: corps humain)
+python create_theme.py corps_humain
+
+# 2. Télécharger les images (3 options)
+python telecharger_images.py corps_humain                    # Multi-sources classique
+python telecharger_images_clip.py corps_humain               # Multi-sources + scoring CLIP 🧠
+python scorer_images_clip.py corps_humain                    # Scoring CLIP seulement
+
+# 3. Générer le document Word
+python generer_document.py corps_humain
+
+# Résultat : themes/corps_humain/Делови на телото.docx
 ```
 
-## 📝 Téléchargement d'images
+## 🧠 Scoring CLIP automatique
 
-### Wikimedia Commons (gratuit, sans clé API)
+### Intelligence artificielle pour la sélection d'images
+
+Le système utilise **CLIP (Contrastive Language-Image Pre-training)** d'OpenAI pour :
+
+- **Analyser** chaque image téléchargée avec le modèle CLIP
+- **Calculer** un score de pertinence (0-1) par rapport au mot anglais
+- **Sélectionner** automatiquement l'image avec le meilleur score
+- **Optimiser** la vitesse avec traitement par batch (3.7x plus rapide)
+
+**Exemple de sortie :**
+
+```
+🔍 Scoring images pour chat (мачка)
+   📝 Requête: 'cat'
+   📸 chat_unsplash_3.jpg → Score: 0.956 ⭐ MEILLEURE
+   📸 chat_unsplash_2.jpg → Score: 0.953
+   📸 chat_unsplash_1.jpg → Score: 0.950
+   📸 chat_pexels_5.jpg → Score: 0.950
+   📸 chat_pexels_4.jpg → Score: 0.940
+   📸 chat_pexels_6.jpg → Score: 0.932
+✅ Sélectionnée: chat_unsplash_3.jpg
+```
+
+### 📊 Rapport de scoring détaillé
+
+Le module génère automatiquement un fichier `scoring_report.json` avec :
+
+- **Scores détaillés** de toutes les images analysées
+- **Classement** par ordre de pertinence
+- **Image sélectionnée** marquée
+- **Statistiques** complètes par élément
+
+## 📝 Téléchargement multi-sources
+
+### 4 sources automatiques
 
 ```python
-from telecharger_images_wikimedia import WikimediaDownloader
+from telecharger_images_unified import MultiSourceImageDownloader
 
-d = WikimediaDownloader()
-d.search_and_download(
-    query="human eye close up",      # Requête simple
-    output_dir="themes/mon_theme/photos",
-    count=3,                          # 3 images par concept
-    filename_prefix="oeil"
-)
+downloader = MultiSourceImageDownloader()
+downloader.download_for_theme("corps_humain")
 ```
+
+**Sources disponibles :**
+
+- ✅ **Unsplash** - Photos haute qualité (clé API requise)
+- ✅ **Pexels** - Images libres de droits (clé API requise)
+- ✅ **Wikipedia** - Images éducatives (gratuit)
+- ✅ **Wikimedia Commons** - Domaine public (gratuit)
 
 **Avantages :**
 
-- ✅ **100% gratuit** - Aucune clé API
+- ✅ **10 images par élément** (configurable)
+- ✅ **Parallélisme** : 20+ téléchargements simultanés
 - ✅ **Libres de droits** - Domaine public / Creative Commons
-- ✅ **Images variées** - Photos, illustrations éducatives
 - ✅ **Filtre automatique** - Seulement JPG/PNG < 10 MB
 
 ## 🎯 Bonnes pratiques pour les requêtes
@@ -67,43 +121,86 @@ d.search_and_download(
 
 ## 📋 Configuration d'un thème
 
-Fichier `themes/{nom_theme}/selection.json` :
+### Fichier `themes/{nom_theme}/config.json` :
 
 ```json
 {
-  "theme": "mon_theme",
-  "titre": "Мој наслов",
+  "theme": "corps_humain",
+  "titre": "Делови на телото",
   "colonnes": 3,
+  "images_par_element": 10,
   "elements": [
     {
-      "nom_macedonien": "око",
-      "nom_francais": "œil",
-      "image_selectionnee": "oeil_1.jpg"
+      "mot_anglais": "head",
+      "nom_francais": "tete",
+      "nom_macedonien": "глава"
+    },
+    {
+      "mot_anglais": "eye",
+      "nom_francais": "oeil",
+      "nom_macedonien": "око"
     }
   ]
 }
 ```
 
-## 🎨 Exemple : Corps humain
+### Fichier `themes/{nom_theme}/selection.json` (généré par CLIP) :
 
-```python
-# Le script télécharge automatiquement :
-parties_corps = [
-    ("глава", "tête", "human head face portrait"),
-    ("око", "œil", "human eye close up"),
-    ("нос", "nez", "human nose close up"),
-    ("уста", "bouche", "human mouth lips smile"),
-    ("рака", "main", "human hand fingers"),
-    ("нога", "jambe", "human leg"),
-    ("срце", "cœur", "human heart organ"),
-    ("стомак", "estomac", "human stomach abdomen"),
-    ("уво", "oreille", "human ear close up"),
-    ("коса", "cheveux", "human hair texture")
-]
+```json
+{
+  "theme": "corps_humain",
+  "titre": "Делови на телото",
+  "colonnes": 3,
+  "elements": [
+    {
+      "nom_macedonien": "глава",
+      "nom_francais": "tete",
+      "image_selectionnee": "tete_pexels_4.jpg"
+    },
+    {
+      "nom_macedonien": "око",
+      "nom_francais": "oeil",
+      "image_selectionnee": "oeil_unsplash_3.jpg"
+    }
+  ]
+}
 ```
+
+## 🎨 Thèmes disponibles
+
+### Corps humain
+
+```bash
+python create_theme.py corps_humain
+python telecharger_images_clip.py corps_humain
+python generer_document.py corps_humain
+```
+
+### Météo
+
+```bash
+python create_theme.py meteo
+python telecharger_images_clip.py meteo
+python generer_document.py meteo
+```
+
+### Animaux
+
+```bash
+python create_theme.py animaux
+python telecharger_images_clip.py animaux
+python generer_document.py animaux
+```
+
+## ⚡ Performance
+
+- **Multi-sources** : 4.3 secondes pour 10 mots × 10 images = 100 images
+- **Parallélisme** : 20+ téléchargements simultanés
+- **Scoring CLIP optimisé** : Traitement par batch de 4 images (3.7x plus rapide)
+- **Sources variées** : Unsplash + Pexels + Wikipedia + Wikimedia Commons 🚀
 
 ## 📦 Dépendances
 
 ```bash
-pip install python-docx requests
+pip install python-docx>=0.8.11 requests>=2.31.0 Pillow>=10.0.0 torch>=2.0.0 transformers>=4.30.0
 ```

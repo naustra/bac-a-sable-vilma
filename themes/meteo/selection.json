@@ -6,17 +6,17 @@
     {
       "nom_macedonien": "сонце",
       "nom_francais": "soleil",
-      "image_selectionnee": "soleil_pexels_4.jpg"
+      "image_selectionnee": "soleil_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "облак",
       "nom_francais": "nuage",
-      "image_selectionnee": "nuage_pexels_4.jpg"
+      "image_selectionnee": "nuage_unsplash_2.jpg"
     },
     {
       "nom_macedonien": "дожд",
       "nom_francais": "pluie",
-      "image_selectionnee": "pluie_pexels_4.jpg"
+      "image_selectionnee": "pluie_unsplash_3.jpg"
     },
     {
       "nom_macedonien": "снег",
@@ -26,22 +26,22 @@
     {
       "nom_macedonien": "ветер",
       "nom_francais": "vent",
-      "image_selectionnee": "vent_pexels_4.jpg"
+      "image_selectionnee": "vent_pexels_6.jpg"
     },
     {
       "nom_macedonien": "бура",
       "nom_francais": "orage",
-      "image_selectionnee": "orage_pexels_4.jpg"
+      "image_selectionnee": "orage_pexels_5.jpg"
     },
     {
       "nom_macedonien": "молња",
       "nom_francais": "eclair",
-      "image_selectionnee": "eclair_pexels_4.jpg"
+      "image_selectionnee": "eclair_pexels_5.jpg"
     },
     {
       "nom_macedonien": "виножито",
       "nom_francais": "arc-en-ciel",
-      "image_selectionnee": "arc-en-ciel_pexels_4.jpg"
+      "image_selectionnee": "arc-en-ciel_pexels_6.jpg"
     }
   ]
 }

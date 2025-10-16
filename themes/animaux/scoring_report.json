@@ -1,0 +1,367 @@
+{
+  "theme": "animaux",
+  "titre": "Животни",
+  "date_analyse": "1760646155.9138138",
+  "elements": [
+    {
+      "nom_francais": "chien",
+      "nom_macedonien": "куче",
+      "requete_anglais": "dog",
+      "image_selectionnee": "chien_pexels_4.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "chien_pexels_4.jpg",
+          "score": 0.9513,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "chien_pexels_5.jpg",
+          "score": 0.9462,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "chien_unsplash_2.jpg",
+          "score": 0.9462,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "chien_pexels_6.jpg",
+          "score": 0.9408,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "chien_unsplash_3.jpg",
+          "score": 0.9382,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "chien_unsplash_1.jpg",
+          "score": 0.9369,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "chat",
+      "nom_macedonien": "мачка",
+      "requete_anglais": "cat",
+      "image_selectionnee": "chat_unsplash_3.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "chat_unsplash_3.jpg",
+          "score": 0.956,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "chat_unsplash_2.jpg",
+          "score": 0.953,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "chat_unsplash_1.jpg",
+          "score": 0.9504,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "chat_pexels_5.jpg",
+          "score": 0.9496,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "chat_pexels_4.jpg",
+          "score": 0.9405,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "chat_pexels_6.jpg",
+          "score": 0.9318,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "oiseau",
+      "nom_macedonien": "птица",
+      "requete_anglais": "bird",
+      "image_selectionnee": "oiseau_pexels_6.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "oiseau_pexels_6.jpg",
+          "score": 0.9532,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "oiseau_pexels_5.jpg",
+          "score": 0.947,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "oiseau_unsplash_1.jpg",
+          "score": 0.9457,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "oiseau_unsplash_3.jpg",
+          "score": 0.9421,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "oiseau_pexels_4.jpg",
+          "score": 0.9394,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "oiseau_unsplash_2.jpg",
+          "score": 0.9343,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "poisson",
+      "nom_macedonien": "риба",
+      "requete_anglais": "fish",
+      "image_selectionnee": "poisson_unsplash_1.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "poisson_unsplash_1.jpg",
+          "score": 0.9486,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "poisson_pexels_6.jpg",
+          "score": 0.9411,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "poisson_unsplash_3.jpg",
+          "score": 0.9404,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "poisson_unsplash_2.jpg",
+          "score": 0.9403,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "poisson_pexels_4.jpg",
+          "score": 0.9296,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "poisson_pexels_5.jpg",
+          "score": 0.922,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "cheval",
+      "nom_macedonien": "коњ",
+      "requete_anglais": "horse",
+      "image_selectionnee": "cheval_pexels_5.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "cheval_pexels_5.jpg",
+          "score": 0.9569,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "cheval_unsplash_2.jpg",
+          "score": 0.9524,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "cheval_unsplash_1.jpg",
+          "score": 0.9502,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "cheval_unsplash_3.jpg",
+          "score": 0.9461,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "cheval_pexels_6.jpg",
+          "score": 0.9421,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "cheval_pexels_4.jpg",
+          "score": 0.922,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "vache",
+      "nom_macedonien": "крава",
+      "requete_anglais": "cow",
+      "image_selectionnee": "vache_unsplash_2.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "vache_unsplash_2.jpg",
+          "score": 0.9589,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "vache_unsplash_1.jpg",
+          "score": 0.9503,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "vache_unsplash_3.jpg",
+          "score": 0.9482,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "vache_pexels_5.jpg",
+          "score": 0.9447,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "vache_pexels_4.jpg",
+          "score": 0.9399,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "vache_pexels_6.jpg",
+          "score": 0.9302,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "cochon",
+      "nom_macedonien": "свиња",
+      "requete_anglais": "pig",
+      "image_selectionnee": "cochon_unsplash_3.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "cochon_unsplash_3.jpg",
+          "score": 0.9545,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "cochon_unsplash_1.jpg",
+          "score": 0.9531,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "cochon_pexels_6.jpg",
+          "score": 0.9482,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "cochon_pexels_4.jpg",
+          "score": 0.9424,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "cochon_unsplash_2.jpg",
+          "score": 0.9383,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "cochon_pexels_5.jpg",
+          "score": 0.9377,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "mouton",
+      "nom_macedonien": "овца",
+      "requete_anglais": "sheep",
+      "image_selectionnee": "mouton_unsplash_2.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "mouton_unsplash_2.jpg",
+          "score": 0.9604,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "mouton_unsplash_1.jpg",
+          "score": 0.9602,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "mouton_pexels_6.jpg",
+          "score": 0.9532,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "mouton_unsplash_3.jpg",
+          "score": 0.9519,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "mouton_pexels_5.jpg",
+          "score": 0.9506,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "mouton_pexels_4.jpg",
+          "score": 0.9501,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    }
+  ]
+}

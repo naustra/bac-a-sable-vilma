@@ -54,8 +54,17 @@ class CLIPImageScorer:
         try:
             # Charger et traiter l'image
             image = Image.open(image_path).convert("RGB")
+
+            # Créer des requêtes alternatives pour plus de précision
+            text_queries = [
+                text_query,
+                f"a photo of {text_query}",
+                f"image of {text_query}",
+                f"picture showing {text_query}"
+            ]
+
             inputs = self.processor(
-                text=[text_query],
+                text=text_queries,
                 images=image,
                 return_tensors="pt",
                 padding=True
@@ -68,9 +77,12 @@ class CLIPImageScorer:
             with torch.no_grad():
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
-                probs = logits_per_image.softmax(dim=-1)
+                # Prendre le maximum des scores pour les différentes formulations
+                max_score = torch.max(logits_per_image)
+                # Normaliser entre 0 et 1 avec une fonction sigmoid
+                normalized_score = 1 / (1 + torch.exp(-max_score / 10))
 
-            return float(probs[0][0])
+            return float(normalized_score.item())
 
         except Exception as e:
             print(f"⚠️  Erreur lors du scoring de {image_path}: {e}")
@@ -89,19 +101,105 @@ class CLIPImageScorer:
         """
         results = []
 
-        for image_path in image_paths:
-            if not os.path.exists(image_path):
-                print(f"⚠️  Image introuvable: {image_path}")
-                continue
+        # Traitement par batch pour optimiser la vitesse
+        batch_size = 4  # Traiter 4 images à la fois
 
-            score = self.score_image(image_path, text_query)
-            results.append({
-                'path': image_path,
-                'filename': os.path.basename(image_path),
-                'score': score
-            })
+        for i in range(0, len(image_paths), batch_size):
+            batch_paths = image_paths[i:i + batch_size]
+            batch_results = self._score_batch_optimized(batch_paths, text_query)
+            results.extend(batch_results)
 
         return results
+
+    def _score_batch_optimized(self, image_paths: List[str], text_query: str) -> List[Dict]:
+        """
+        Score un batch d'images de manière optimisée
+
+        Args:
+            image_paths: Liste des chemins d'images (max 4)
+            text_query: Requête textuelle
+
+        Returns:
+            Liste de dictionnaires avec les scores
+        """
+        try:
+            # Charger toutes les images du batch
+            images = []
+            valid_paths = []
+
+            for image_path in image_paths:
+                if not os.path.exists(image_path):
+                    print(f"⚠️  Image introuvable: {image_path}")
+                    continue
+
+                try:
+                    image = Image.open(image_path).convert("RGB")
+                    images.append(image)
+                    valid_paths.append(image_path)
+                except Exception as e:
+                    print(f"⚠️  Erreur chargement {image_path}: {e}")
+                    continue
+
+            if not images:
+                return []
+
+            # Créer des requêtes alternatives pour plus de précision
+            text_queries = [
+                text_query,
+                f"a photo of {text_query}",
+                f"image of {text_query}",
+                f"picture showing {text_query}"
+            ]
+
+            # Traiter le batch complet
+            inputs = self.processor(
+                text=text_queries,
+                images=images,
+                return_tensors="pt",
+                padding=True
+            )
+
+            # Déplacer sur le device approprié
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+
+            # Calculer les embeddings pour tout le batch
+            with torch.no_grad():
+                outputs = self.model(**inputs)
+                logits_per_image = outputs.logits_per_image
+
+                # Pour chaque image, prendre le meilleur score parmi les requêtes
+                batch_scores = []
+                for i in range(len(images)):
+                    image_logits = logits_per_image[i]
+                    max_score = torch.max(image_logits)
+                    # Normaliser entre 0 et 1 avec une fonction sigmoid
+                    normalized_score = 1 / (1 + torch.exp(-max_score / 10))
+                    batch_scores.append(float(normalized_score.item()))
+
+            # Créer les résultats
+            results = []
+            for i, (image_path, score) in enumerate(zip(valid_paths, batch_scores)):
+                results.append({
+                    'path': image_path,
+                    'filename': os.path.basename(image_path),
+                    'score': score
+                })
+
+            return results
+
+        except Exception as e:
+            print(f"⚠️  Erreur batch scoring: {e}")
+            # Fallback vers scoring individuel
+            results = []
+            for image_path in image_paths:
+                if os.path.exists(image_path):
+                    score = self.score_image(image_path, text_query)
+                    results.append({
+                        'path': image_path,
+                        'filename': os.path.basename(image_path),
+                        'score': score
+                    })
+            return results
 
     def find_images_for_prefix(self, photos_dir: str, prefix: str) -> List[str]:
         """
@@ -212,6 +310,75 @@ class CLIPImageScorer:
 
         print(f"\n✅ Configuration sauvegardée: {selection_path}")
         print(f"📊 {len(elements)} éléments sélectionnés")
+
+        # Créer un fichier de rapport détaillé
+        self.create_scoring_report(theme_name, config, elements)
+
+    def create_scoring_report(self, theme_name: str, config: dict, selected_elements: list) -> None:
+        """
+        Crée un fichier de rapport détaillé avec tous les scores CLIP
+
+        Args:
+            theme_name: Nom du thème
+            config: Configuration du thème
+            selected_elements: Éléments sélectionnés
+        """
+        photos_dir = f"themes/{theme_name}/photos"
+        report_path = f"themes/{theme_name}/scoring_report.json"
+
+        report = {
+            "theme": theme_name,
+            "titre": config['titre'],
+            "date_analyse": str(os.path.getctime(photos_dir)),
+            "elements": []
+        }
+
+        print(f"\n📊 Création du rapport de scoring...")
+
+        for element in config['elements']:
+            nom_francais = element['nom_francais']
+            nom_macedonien = element['nom_macedonien']
+            mot_anglais = element['mot_anglais']
+
+            # Trouver toutes les images pour ce mot
+            image_paths = self.find_images_for_prefix(photos_dir, nom_francais)
+
+            if not image_paths:
+                continue
+
+            # Scorer toutes les images
+            scored_images = self.score_batch(image_paths, mot_anglais)
+            scored_images.sort(key=lambda x: x['score'], reverse=True)
+
+            # Trouver l'élément sélectionné
+            selected_element = next((e for e in selected_elements if e['nom_francais'] == nom_francais), None)
+            selected_image = selected_element['image_selectionnee'] if selected_element else None
+
+            element_report = {
+                "nom_francais": nom_francais,
+                "nom_macedonien": nom_macedonien,
+                "requete_anglais": mot_anglais,
+                "image_selectionnee": selected_image,
+                "total_images": len(scored_images),
+                "scores": []
+            }
+
+            for img in scored_images:
+                is_selected = img['filename'] == selected_image
+                element_report["scores"].append({
+                    "filename": img['filename'],
+                    "score": round(img['score'], 4),
+                    "selected": is_selected,
+                    "rank": scored_images.index(img) + 1
+                })
+
+            report["elements"].append(element_report)
+
+        # Sauvegarder le rapport
+        with open(report_path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
+
+        print(f"📄 Rapport de scoring sauvegardé: {report_path}")
 
 
 def main():

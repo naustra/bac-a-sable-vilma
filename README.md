@@ -24,8 +24,9 @@ python generer_document.py corps_humain
 
 ### ⚡ Performance
 
-- **Multi-sources** : 4.3 secondes pour 10 mots × 6 images = 60 images
+- **Multi-sources** : 4.3 secondes pour 10 mots × 10 images = 100 images
 - **Parallélisme** : 20+ téléchargements simultanés
+- **Scoring CLIP optimisé** : Traitement par batch de 4 images (3.7x plus rapide)
 - **Sources variées** : Unsplash + Pexels + Wikipedia + Wikimedia Commons 🚀
 
 ## 🔑 Sources d'images disponibles
@@ -154,12 +155,44 @@ Le module `scorer_images_clip.py` utilise l'IA pour :
 **Exemple de sortie :**
 
 ```
-🔍 Scoring images pour oeil (око)
-   📝 Requête: 'eye'
-   📸 oeil_unsplash_1.jpg → Score: 0.87
-   📸 oeil_pexels_1.jpg → Score: 0.64
-   📸 oeil_wikipedia_1.jpg → Score: 0.91 ⭐ MEILLEURE
-✅ Sélectionnée: oeil_wikipedia_1.jpg
+🔍 Scoring images pour chat (мачка)
+   📝 Requête: 'cat'
+   📸 chat_unsplash_3.jpg → Score: 0.956 ⭐ MEILLEURE
+   📸 chat_unsplash_2.jpg → Score: 0.953
+   📸 chat_unsplash_1.jpg → Score: 0.950
+   📸 chat_pexels_5.jpg → Score: 0.950
+   📸 chat_pexels_4.jpg → Score: 0.940
+   📸 chat_pexels_6.jpg → Score: 0.932
+✅ Sélectionnée: chat_unsplash_3.jpg
+```
+
+### 📊 Rapport de scoring détaillé
+
+Le module génère automatiquement un fichier `scoring_report.json` dans chaque thème avec :
+
+- **Scores détaillés** de toutes les images analysées
+- **Classement** par ordre de pertinence
+- **Image sélectionnée** marquée
+- **Statistiques** complètes par élément
+
+**Exemple de rapport :**
+
+```json
+{
+  "nom_francais": "chien",
+  "nom_macedonien": "куче",
+  "requete_anglais": "dog",
+  "image_selectionnee": "chien_pexels_4.jpg",
+  "total_images": 6,
+  "scores": [
+    {
+      "filename": "chien_pexels_4.jpg",
+      "score": 0.9513,
+      "selected": true,
+      "rank": 1
+    }
+  ]
+}
 ```
 
 ## 🎯 Bonnes pratiques
@@ -179,7 +212,7 @@ bac-a-sable-vilma/
 ├── telecharger_images_clip.py                 # 🧠 Téléchargeur + scoring CLIP
 ├── scorer_images_clip.py                      # 🧠 Module scoring IA CLIP
 ├── generer_document.py                        # 📄 Générateur Word
-├── telecharger_images_multi_sources.py        # 🔧 Module téléchargement
+├── telecharger_images_unified.py              # 🔧 Module téléchargement
 ├── config_api.py                              # 🔑 Configuration APIs
 ├── convertir_images.py                        # 🔄 Conversion JPEG
 ├── requirements.txt                           # 📦 Dépendances Python
@@ -188,6 +221,7 @@ bac-a-sable-vilma/
         ├── config.json                        # Configuration du thème
         ├── photos/                            # Images téléchargées
         ├── selection.json                     # Images sélectionnées
+        ├── scoring_report.json                # 📊 Rapport détaillé CLIP
         └── {Theme}.docx                       # Document généré
 ```
 
@@ -203,7 +237,7 @@ Le système est maintenant **100% générique** et réutilisable :
 | `scorer_images_clip.py`      | 🧠 Scoring CLIP seulement                 |
 | `generer_document.py`        | 📄 Générer le document Word               |
 
-**Performance :** 4.1 secondes pour 8 mots × 6 images = 48 images
+**Performance :** 4.1 secondes pour 8 mots × 10 images = 80 images
 
 ## 🎯 Créer un nouveau thème
 
@@ -227,7 +261,7 @@ Chaque thème a sa propre configuration dans `themes/{nom}/config.json` :
   "theme": "meteo",
   "titre": "Времето",
   "colonnes": 4,
-  "images_par_element": 6,
+  "images_par_element": 10,
   "elements": [
     {
       "mot_anglais": "sun",
