@@ -1,0 +1,49 @@
+{
+  "theme": "meteo",
+  "titre": "Времето",
+  "colonnes": 4,
+  "images_par_element": 6,
+  "max_workers": 20,
+  "elements": [
+    {
+      "mot_anglais": "sun",
+      "nom_francais": "soleil",
+      "nom_macedonien": "сонце"
+    },
+    {
+      "mot_anglais": "cloud",
+      "nom_francais": "nuage",
+      "nom_macedonien": "облак"
+    },
+    {
+      "mot_anglais": "rain",
+      "nom_francais": "pluie",
+      "nom_macedonien": "дожд"
+    },
+    {
+      "mot_anglais": "snow",
+      "nom_francais": "neige",
+      "nom_macedonien": "снег"
+    },
+    {
+      "mot_anglais": "wind",
+      "nom_francais": "vent",
+      "nom_macedonien": "ветер"
+    },
+    {
+      "mot_anglais": "storm",
+      "nom_francais": "orage",
+      "nom_macedonien": "бура"
+    },
+    {
+      "mot_anglais": "lightning",
+      "nom_francais": "eclair",
+      "nom_macedonien": "молња"
+    },
+    {
+      "mot_anglais": "rainbow",
+      "nom_francais": "arc-en-ciel",
+      "nom_macedonien": "виножито"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "theme": "corps_humain",
+  "titre": "Делови на телото",
+  "colonnes": 3,
+  "images_par_element": 6,
+  "max_workers": 20,
+  "elements": [
+    {
+      "mot_anglais": "head",
+      "nom_francais": "tete",
+      "nom_macedonien": "глава"
+    },
+    {
+      "mot_anglais": "eye",
+      "nom_francais": "oeil",
+      "nom_macedonien": "око"
+    },
+    {
+      "mot_anglais": "nose",
+      "nom_francais": "nez",
+      "nom_macedonien": "нос"
+    },
+    {
+      "mot_anglais": "mouth",
+      "nom_francais": "bouche",
+      "nom_macedonien": "уста"
+    },
+    {
+      "mot_anglais": "hand",
+      "nom_francais": "main",
+      "nom_macedonien": "рака"
+    },
+    {
+      "mot_anglais": "leg",
+      "nom_francais": "jambe",
+      "nom_macedonien": "нога"
+    },
+    {
+      "mot_anglais": "heart",
+      "nom_francais": "coeur",
+      "nom_macedonien": "срце"
+    },
+    {
+      "mot_anglais": "stomach",
+      "nom_francais": "estomac",
+      "nom_macedonien": "стомак"
+    },
+    {
+      "mot_anglais": "ear",
+      "nom_francais": "oreille",
+      "nom_macedonien": "уво"
+    },
+    {
+      "mot_anglais": "hair",
+      "nom_francais": "cheveux",
+      "nom_macedonien": "коса"
+    }
+  ]
+}

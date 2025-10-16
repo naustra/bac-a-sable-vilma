@@ -1,26 +1,28 @@
 # 📚 Générateur de documents éducatifs en macédonien
 
-Créer des documents Word avec grilles d'images et noms en **macédonien cyrillique**, en utilisant des images gratuites depuis Wikimedia Commons.
+Créer des documents Word avec grilles d'images et noms en **macédonien cyrillique**, pour n'importe quel thème !
 
 ## 🚀 Quick Start
 
 ```bash
 # Installer les dépendances
-pip install python-docx requests Pillow
+pip install -r requirements.txt
 
-# Option 1: Multi-sources (RECOMMANDÉ - 6 images par mot !)
-python creer_corps_humain_multi_sources.py
+# 1. Créer un thème (ex: corps humain)
+python create_theme.py corps_humain
 
-# Option 2: Wikipedia optimisé (rapide)
-python creer_corps_humain_optimized.py
+# 2. Télécharger les images
+python telecharger_images.py corps_humain
 
-# Résultat : themes/corps_humain/Corps Humain.docx
+# 3. Générer le document Word
+python generer_document.py corps_humain
+
+# Résultat : themes/corps_humain/Делови на телото.docx
 ```
 
 ### ⚡ Performance
 
 - **Multi-sources** : 4.3 secondes pour 10 mots × 6 images = 60 images
-- **Wikipedia optimisé** : 4.8 secondes pour 10 mots × 3 images = 30 images
 - **Parallélisme** : 20+ téléchargements simultanés
 - **Sources variées** : Unsplash + Pexels + Wikipedia + Wikimedia Commons 🚀
 
@@ -29,7 +31,7 @@ python creer_corps_humain_optimized.py
 Le script utilise **4 sources** automatiquement :
 
 - **🎯 Unsplash** : Photos modernes de haute qualité (priorité)
-- **📸 Pexels** : Photos variées et professionnelles  
+- **📸 Pexels** : Photos variées et professionnelles
 - **📚 Wikipedia** : Images éducatives et anatomiques
 - **🌐 Wikimedia Commons** : Images libres de droits
 
@@ -107,19 +109,31 @@ Créer `themes/mon_theme/selection.json` :
 python generer_document_theme.py mon_theme
 ```
 
-## 🎨 Exemple : Corps Humain
+## 🎨 Thèmes disponibles
 
-Le script `creer_corpus_humain_wikimedia.py` fait tout automatiquement :
+### Corps Humain
+```bash
+python create_theme.py corps_humain
+python telecharger_images.py corps_humain
+python generer_document.py corps_humain
+```
+**Éléments :** глава (tête), око (œil), нос (nez), уста (bouche), рака (main), нога (jambe), срце (cœur), стомак (estomac), уво (oreille), коса (cheveux)
 
-1. Télécharge 3 images par partie du corps depuis Wikimedia
-2. Crée le fichier `selection.json`
-3. Génère le document Word
+### Météo
+```bash
+python create_theme.py meteo
+python telecharger_images.py meteo
+python generer_document.py meteo
+```
+**Éléments :** сонце (soleil), облак (nuage), дожд (pluie), снег (neige), ветер (vent), бура (orage), молња (éclair), виножито (arc-en-ciel)
 
-**Parties du corps incluses :**
-
-- глава (tête), око (œil), нос (nez), уста (bouche)
-- рака (main), нога (jambe), срце (cœur), стомак (estomac)
-- уво (oreille), коса (cheveux)
+### Animaux
+```bash
+python create_theme.py animaux
+python telecharger_images.py animaux
+python generer_document.py animaux
+```
+**Éléments :** куче (chien), мачка (chat), птица (oiseau), риба (poisson), коњ (cheval), крава (vache), свиња (cochon), овца (mouton)
 
 ## 🎯 Bonnes pratiques
 
@@ -133,24 +147,65 @@ Le script `creer_corpus_humain_wikimedia.py` fait tout automatiquement :
 
 ```
 bac-a-sable-vilma/
-├── telecharger_images_wikipedia_optimized.py  # ⚡ Téléchargeur parallèle
-├── creer_corps_humain_optimized.py            # 🚀 Script ultra-rapide
-├── convertir_images.py                        # 🔄 Conversion JPEG baseline
-├── generer_document_theme.py                  # 📄 Générateur .docx
+├── create_theme.py                            # 🎨 Créateur de thèmes
+├── telecharger_images.py                      # 📸 Téléchargeur multi-sources
+├── generer_document.py                        # 📄 Générateur Word
+├── telecharger_images_multi_sources.py        # 🔧 Module téléchargement
+├── config_api.py                              # 🔑 Configuration APIs
+├── convertir_images.py                        # 🔄 Conversion JPEG
+├── requirements.txt                           # 📦 Dépendances Python
 └── themes/
     └── {theme}/
+        ├── config.json                        # Configuration du thème
         ├── photos/                            # Images téléchargées
-        ├── selection.json                     # Configuration
+        ├── selection.json                     # Images sélectionnées
         └── {Theme}.docx                       # Document généré
 ```
 
-## 🚀 Versions disponibles
+## 🚀 Système modulaire
 
-| Script                              | Performance | Images/mot | Usage                                              |
-| ----------------------------------- | ----------- | ---------- | -------------------------------------------------- |
-| `creer_corps_humain_multi_sources.py` | **4.3s**  | **6**      | 🎯 **RECOMMANDÉ** - 4 sources, qualité maximale   |
-| `creer_corps_humain_optimized.py`   | **4.8s**    | 3          | ⚡ Rapide - Wikipedia seulement                    |
-| `creer_corpus_humain_wikimedia.py`  | ~35s        | 3          | 📚 Classique - Wikimedia Commons seulement        |
+Le système est maintenant **100% générique** et réutilisable :
+
+| Script | Usage |
+|--------|-------|
+| `create_theme.py` | 🎨 Créer un nouveau thème |
+| `telecharger_images.py` | 📸 Télécharger les images (4 sources) |
+| `generer_document.py` | 📄 Générer le document Word |
+
+**Performance :** 4.1 secondes pour 8 mots × 6 images = 48 images
+
+## 🎯 Créer un nouveau thème
+
+```bash
+# Voir les thèmes disponibles
+python create_theme.py list
+
+# Créer un thème personnalisé
+python create_theme.py mon_theme --titre "Mon Titre" --colonnes 4
+
+# Ou utiliser un thème prédéfini
+python create_theme.py meteo
+```
+
+### 📝 Structure d'un thème
+
+Chaque thème a sa propre configuration dans `themes/{nom}/config.json` :
+
+```json
+{
+  "theme": "meteo",
+  "titre": "Времето",
+  "colonnes": 4,
+  "images_par_element": 6,
+  "elements": [
+    {
+      "mot_anglais": "sun",
+      "nom_francais": "soleil", 
+      "nom_macedonien": "сонце"
+    }
+  ]
+}
+```
 
 ## 📝 Licence
 
