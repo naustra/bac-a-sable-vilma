@@ -91,18 +91,18 @@ def main():
     print("\n" + "=" * 80)
     print("🔄 CONVERSION DES IMAGES")
     print("=" * 80)
-    
+
     conversions = convertir_images_pour_docx(photos_dir)
-    
+
     # Mettre à jour les noms de fichiers dans elements
     for element in elements:
         old_name = element["image_selectionnee"]
         if old_name in conversions:
             element["image_selectionnee"] = conversions[old_name]
             print(f"   {old_name} → {conversions[old_name]}")
-    
+
     print(f"✅ {len(conversions)} images converties" if conversions else "✅ Images déjà au bon format")
-    
+
     # Créer le fichier de configuration
     print("\n" + "=" * 80)
     print("📝 CRÉATION DU FICHIER DE CONFIGURATION")
