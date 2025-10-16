@@ -8,17 +8,50 @@ Créer des documents Word avec grilles d'images et noms en **macédonien cyrilli
 # Installer les dépendances
 pip install python-docx requests Pillow
 
-# Générer un document "Corps Humain" (VERSION OPTIMISÉE - 4.8 secondes !)
+# Option 1: Multi-sources (RECOMMANDÉ - 10 images par mot !)
+python creer_corps_humain_multi_sources.py
+
+# Option 2: Wikipedia optimisé (rapide)
 python creer_corps_humain_optimized.py
 
 # Résultat : themes/corps_humain/Corps Humain.docx
 ```
 
 ### ⚡ Performance
-- **4.8 secondes** pour télécharger 10 parties du corps
-- **3 images par partie** depuis Wikipedia
-- **Parallélisme** : 8 téléchargements simultanés
-- **2.1 articles/seconde** 🚀
+
+- **Multi-sources** : 8-12 secondes pour 10 mots × 10 images = 100 images
+- **Wikipedia optimisé** : 4.8 secondes pour 10 mots × 3 images = 30 images
+- **Parallélisme** : 20+ téléchargements simultanés
+- **Sources variées** : Unsplash, Pexels, Wikipedia, Wikimedia Commons 🚀
+
+## 🔑 Configuration des APIs (Multi-sources)
+
+Pour utiliser toutes les sources, obtenir les clés API gratuites :
+
+### 1. Unsplash (photos modernes)
+1. Aller sur https://unsplash.com/developers
+2. Créer un compte développeur
+3. Créer une nouvelle application
+4. Copier la clé "Access Key"
+
+### 2. Pexels (photos variées)
+1. Aller sur https://pexels.com/api
+2. Créer un compte
+3. Générer une clé API
+4. Copier la clé
+
+### 3. Configuration
+```bash
+# Définir les variables d'environnement
+export UNSPLASH_API_KEY='votre_cle_unsplash'
+export PEXELS_API_KEY='votre_cle_pexels'
+
+# Ou créer un fichier .env (optionnel)
+echo "UNSPLASH_API_KEY=votre_cle" > .env
+echo "PEXELS_API_KEY=votre_cle" >> .env
+```
+
+**Note** : Sans clés API, le script utilisera seulement Wikipedia et Wikimedia Commons (gratuits).
 
 ## 📸 Comment ça marche ?
 
@@ -106,10 +139,11 @@ bac-a-sable-vilma/
 
 ## 🚀 Versions disponibles
 
-| Script | Performance | Usage |
-|--------|-------------|-------|
-| `creer_corps_humain_optimized.py` | **4.8s** | ⚡ **Recommandé** - Ultra-rapide avec parallélisme |
-| `creer_corpus_humain_wikimedia.py` | ~35s | 📚 Version classique avec Wikimedia Commons |
+| Script                              | Performance | Images/mot | Usage                                              |
+| ----------------------------------- | ----------- | ---------- | -------------------------------------------------- |
+| `creer_corps_humain_multi_sources.py` | **8-12s**  | **10**     | 🎯 **RECOMMANDÉ** - 4 sources, choix maximum      |
+| `creer_corps_humain_optimized.py`   | **4.8s**    | 3          | ⚡ Rapide - Wikipedia seulement                    |
+| `creer_corpus_humain_wikimedia.py`  | ~35s        | 3          | 📚 Classique - Wikimedia Commons seulement        |
 
 ## 📝 Licence
 
