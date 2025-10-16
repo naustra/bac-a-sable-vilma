@@ -6,52 +6,52 @@
     {
       "nom_macedonien": "глава",
       "nom_francais": "tete",
-      "image_selectionnee": "tete_wikimedia_wikimedia_tete_wikimedia_1.jpg"
+      "image_selectionnee": "tete_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "око",
       "nom_francais": "oeil",
-      "image_selectionnee": "oeil_wikimedia_wikimedia_oeil_wikimedia_5.jpg"
+      "image_selectionnee": "oeil_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "нос",
       "nom_francais": "nez",
-      "image_selectionnee": "nez_wikimedia_wikimedia_nez_wikimedia_3.jpg"
+      "image_selectionnee": "nez_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "уста",
       "nom_francais": "bouche",
-      "image_selectionnee": "bouche_wikimedia_wikimedia_bouche_wikimedia_1.jpg"
+      "image_selectionnee": "bouche_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "рака",
       "nom_francais": "main",
-      "image_selectionnee": "main_wikimedia_wikimedia_main_wikimedia_2.jpg"
+      "image_selectionnee": "main_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "нога",
       "nom_francais": "jambe",
-      "image_selectionnee": "jambe_wikimedia_wikimedia_jambe_wikimedia_5.jpg"
+      "image_selectionnee": "jambe_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "срце",
       "nom_francais": "coeur",
-      "image_selectionnee": "coeur_wikimedia_wikimedia_coeur_wikimedia_1.jpg"
+      "image_selectionnee": "coeur_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "стомак",
       "nom_francais": "estomac",
-      "image_selectionnee": "estomac_wikimedia_wikimedia_estomac_wikimedia_1.jpg"
+      "image_selectionnee": "estomac_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "уво",
       "nom_francais": "oreille",
-      "image_selectionnee": "oreille_wikimedia_wikimedia_oreille_wikimedia_2.jpg"
+      "image_selectionnee": "oreille_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "коса",
       "nom_francais": "cheveux",
-      "image_selectionnee": "cheveux_wikimedia_wikimedia_cheveux_wikimedia_3.jpg"
+      "image_selectionnee": "cheveux_unsplash_1.jpg"
     }
   ]
 }

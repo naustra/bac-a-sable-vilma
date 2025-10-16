@@ -7,8 +7,8 @@ import os
 
 # Configuration des APIs
 API_KEYS = {
-    'unsplash': os.getenv('UNSPLASH_API_KEY', ''),
-    'pexels': os.getenv('PEXELS_API_KEY', ''),
+    'unsplash': '13whIoqJGm34CmTq_kiFHcS8S2IZ_VQqh3c5Nto3JgU',  # Clé intégrée
+    'pexels': 'pkX7JBK8UmJ1CEs1wxJtlmmW23LXIOQYrhRySyNa2Pi2m3CwwosnnLih',  # Clé intégrée
 }
 
 # URLs des APIs
