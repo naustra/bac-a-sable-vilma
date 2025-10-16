@@ -1,6 +1,6 @@
 {
   "theme": "corps_humain",
-  "titre": "Делови на телото - Македонски",
+  "titre": "Делови на телото",
   "colonnes": 3,
   "elements": [
     {
@@ -16,7 +16,7 @@
     {
       "nom_macedonien": "нос",
       "nom_francais": "nez",
-      "image_selectionnee": "nez_1.png"
+      "image_selectionnee": "nez_1.jpg"
     },
     {
       "nom_macedonien": "уста",
@@ -26,12 +26,12 @@
     {
       "nom_macedonien": "рака",
       "nom_francais": "main",
-      "image_selectionnee": "main_1.png"
+      "image_selectionnee": "main_1.jpg"
     },
     {
       "nom_macedonien": "нога",
       "nom_francais": "jambe",
-      "image_selectionnee": "jambe_1.png"
+      "image_selectionnee": "jambe_1.jpg"
     },
     {
       "nom_macedonien": "срце",

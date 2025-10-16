@@ -23,61 +23,61 @@ def main():
         {
             "nom_macedonien": "глава",
             "nom_francais": "tête",
-            "requete_wikimedia": "human head face portrait",
+            "requete_wikimedia": "head",
             "prefix": "tete"
         },
         {
             "nom_macedonien": "око",
             "nom_francais": "œil",
-            "requete_wikimedia": "human eye close up",
+            "requete_wikimedia": "eye",
             "prefix": "oeil"
         },
         {
             "nom_macedonien": "нос",
             "nom_francais": "nez",
-            "requete_wikimedia": "human nose close up",
+            "requete_wikimedia": "nose",
             "prefix": "nez"
         },
         {
             "nom_macedonien": "уста",
             "nom_francais": "bouche",
-            "requete_wikimedia": "human mouth lips smile",
+            "requete_wikimedia": "mouth",
             "prefix": "bouche"
         },
         {
             "nom_macedonien": "рака",
             "nom_francais": "main",
-            "requete_wikimedia": "human hand fingers",
+            "requete_wikimedia": "hand",
             "prefix": "main"
         },
         {
             "nom_macedonien": "нога",
             "nom_francais": "jambe",
-            "requete_wikimedia": "human leg",
+            "requete_wikimedia": "leg",
             "prefix": "jambe"
         },
         {
             "nom_macedonien": "срце",
             "nom_francais": "cœur",
-            "requete_wikimedia": "human heart organ",
+            "requete_wikimedia": "heart",
             "prefix": "coeur"
         },
         {
             "nom_macedonien": "стомак",
             "nom_francais": "estomac",
-            "requete_wikimedia": "human stomach abdomen",
+            "requete_wikimedia": "stomach",
             "prefix": "estomac"
         },
         {
             "nom_macedonien": "уво",
             "nom_francais": "oreille",
-            "requete_wikimedia": "human ear close up",
+            "requete_wikimedia": "ear",
             "prefix": "oreille"
         },
         {
             "nom_macedonien": "коса",
             "nom_francais": "cheveux",
-            "requete_wikimedia": "human hair texture",
+            "requete_wikimedia": "hair",
             "prefix": "cheveux"
         }
     ]

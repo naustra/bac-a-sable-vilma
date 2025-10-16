@@ -31,6 +31,7 @@ d.search_and_download(
 ```
 
 **Avantages :**
+
 - ✅ **Gratuit** - Pas de clé API
 - ✅ **Libre de droits** - Domaine public / Creative Commons
 - ✅ **Filtre automatique** - Seulement JPG/PNG < 10 MB
@@ -65,10 +66,11 @@ python generer_document_theme.py mon_theme
 Le script `creer_corpus_humain_wikimedia.py` fait tout automatiquement :
 
 1. Télécharge 3 images par partie du corps depuis Wikimedia
-2. Crée le fichier `selection.json`  
+2. Crée le fichier `selection.json`
 3. Génère le document Word
 
 **Parties du corps incluses :**
+
 - глава (tête), око (œil), нос (nez), уста (bouche)
 - рака (main), нога (jambe), срце (cœur), стомак (estomac)
 - уво (oreille), коса (cheveux)
@@ -76,6 +78,7 @@ Le script `creer_corpus_humain_wikimedia.py` fait tout automatiquement :
 ## 🎯 Bonnes pratiques
 
 **Requêtes simples et descriptives :**
+
 - ✅ `"human eye close up"` → photos naturelles
 - ✅ `"human hand fingers"` → images claires
 - ❌ `"anatomy medical diagram"` → trop médical
