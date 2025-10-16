@@ -1,66 +1,43 @@
-# 📚 Bac à Sable Vilma
+# 📚 Générateur de documents éducatifs en macédonien
 
-Générateur de documents éducatifs en macédonien avec images depuis Wikimedia Commons.
-
-## 🎯 Objectif
-
-Créer des documents Word (.docx) avec :
-
-- Grilles d'images
-- Noms en **macédonien cyrillique**
-- Images **libres de droits** depuis Wikimedia Commons
+Créer des documents Word avec grilles d'images et noms en **macédonien cyrillique**, en utilisant des images gratuites depuis Wikimedia Commons.
 
 ## 🚀 Quick Start
-
-### Prérequis
 
 ```bash
 # Installer les dépendances
 pip install python-docx requests
-```
 
-### Créer un document "Corps Humain"
-
-```bash
-# Tout automatique : téléchargement + génération
+# Générer un document "Corps Humain" (tout automatique)
 python creer_corpus_humain_wikimedia.py
 
 # Résultat : themes/corps_humain/Corps Humain.docx
 ```
 
-## 📁 Structure
+## 📸 Comment ça marche ?
 
-```
-bac-a-sable-vilma/
-├── telecharger_images_wikimedia.py      # Module de téléchargement Wikimedia
-├── creer_corpus_humain_wikimedia.py     # Script automatique corps humain
-├── generer_document_theme.py            # Générateur de .docx
-├── themes/
-│   └── corps_humain/
-│       ├── photos/                      # Images téléchargées
-│       ├── selection.json               # Configuration
-│       └── Corps Humain.docx            # Document généré
-```
-
-## 🔧 Créer un nouveau thème
-
-### 1. Télécharger les images
+### 1. Télécharger des images depuis Wikimedia Commons
 
 ```python
 from telecharger_images_wikimedia import WikimediaDownloader
 
 d = WikimediaDownloader()
 d.search_and_download(
-    query="human eye anatomy",
+    query="human eye close up",
     output_dir="themes/mon_theme/photos",
     count=3,
     filename_prefix="oeil"
 )
 ```
 
-### 2. Créer la configuration
+**Avantages :**
+- ✅ **Gratuit** - Pas de clé API
+- ✅ **Libre de droits** - Domaine public / Creative Commons
+- ✅ **Filtre automatique** - Seulement JPG/PNG < 10 MB
 
-Fichier `themes/mon_theme/selection.json` :
+### 2. Configurer le thème
+
+Créer `themes/mon_theme/selection.json` :
 
 ```json
 {
@@ -83,25 +60,40 @@ Fichier `themes/mon_theme/selection.json` :
 python generer_document_theme.py mon_theme
 ```
 
-## 🌟 Avantages Wikimedia Commons
+## 🎨 Exemple : Corps Humain
 
-- ✅ **100% gratuit** - Pas de clé API
-- ✅ **Libres de droits** - Domaine public / Creative Commons
-- ✅ **Scientifique** - Images anatomiques, médicales, éducatives
-- ✅ **Haute qualité** - Souvent issues d'ouvrages académiques
+Le script `creer_corpus_humain_wikimedia.py` fait tout automatiquement :
 
-## 📖 Documentation complète
+1. Télécharge 3 images par partie du corps depuis Wikimedia
+2. Crée le fichier `selection.json`  
+3. Génère le document Word
 
-Voir `.cursor/rules/general.mdc` pour :
+**Parties du corps incluses :**
+- глава (tête), око (œil), нос (nez), уста (bouche)
+- рака (main), нога (jambe), срце (cœur), стомак (estomac)
+- уво (oreille), коса (cheveux)
 
-- Bonnes pratiques de requêtes
-- Exemples par thème
-- Workflow détaillé
+## 🎯 Bonnes pratiques
 
-## 🎨 Thèmes disponibles
+**Requêtes simples et descriptives :**
+- ✅ `"human eye close up"` → photos naturelles
+- ✅ `"human hand fingers"` → images claires
+- ❌ `"anatomy medical diagram"` → trop médical
 
-- ✅ **Corps humain** (corps_humain) - 10 parties du corps
+## 📁 Structure du projet
+
+```
+bac-a-sable-vilma/
+├── telecharger_images_wikimedia.py      # Module de téléchargement
+├── creer_corpus_humain_wikimedia.py     # Script automatique
+├── generer_document_theme.py            # Générateur .docx
+└── themes/
+    └── {theme}/
+        ├── photos/                      # Images téléchargées
+        ├── selection.json               # Configuration
+        └── {Theme}.docx                 # Document généré
+```
 
 ## 📝 Licence
 
-Projet personnel éducatif. Images depuis Wikimedia Commons (domaine public/CC).
+Projet éducatif personnel. Images depuis Wikimedia Commons (domaine public / Creative Commons).
