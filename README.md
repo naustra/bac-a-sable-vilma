@@ -8,8 +8,8 @@ Créer des documents Word avec grilles d'images et noms en **macédonien cyrilli
 # Installer les dépendances
 pip install python-docx requests Pillow
 
-# Option 1: Multi-sources (RECOMMANDÉ - 10 images par mot !)
-python creer_corps_humain_multi_sources_simple.py
+# Option 1: Multi-sources (RECOMMANDÉ - 6 images par mot !)
+python creer_corps_humain_multi_sources.py
 
 # Option 2: Wikipedia optimisé (rapide)
 python creer_corps_humain_optimized.py
@@ -19,52 +19,31 @@ python creer_corps_humain_optimized.py
 
 ### ⚡ Performance
 
-- **Multi-sources** : 20 secondes pour 10 mots × 10 images = 100 images
+- **Multi-sources** : 4.3 secondes pour 10 mots × 6 images = 60 images
 - **Wikipedia optimisé** : 4.8 secondes pour 10 mots × 3 images = 30 images
-- **Parallélisme** : 10+ téléchargements simultanés
-- **Sources variées** : Wikipedia + Wikimedia Commons (gratuits) 🚀
+- **Parallélisme** : 20+ téléchargements simultanés
+- **Sources variées** : Unsplash + Pexels + Wikipedia + Wikimedia Commons 🚀
 
-## 🔑 Configuration des APIs (Multi-sources)
+## 🔑 Sources d'images disponibles
 
-Pour utiliser toutes les sources, obtenir les clés API gratuites :
+Le script utilise **4 sources** automatiquement :
 
-### 1. Unsplash (photos modernes)
+- **🎯 Unsplash** : Photos modernes de haute qualité (priorité)
+- **📸 Pexels** : Photos variées et professionnelles  
+- **📚 Wikipedia** : Images éducatives et anatomiques
+- **🌐 Wikimedia Commons** : Images libres de droits
 
-1. Aller sur https://unsplash.com/developers
-2. Créer un compte développeur
-3. Créer une nouvelle application
-4. Copier la clé "Access Key"
-
-### 2. Pexels (photos variées)
-
-1. Aller sur https://pexels.com/api
-2. Créer un compte
-3. Générer une clé API
-4. Copier la clé
-
-### 3. Configuration
-
-```bash
-# Définir les variables d'environnement
-export UNSPLASH_API_KEY='votre_cle_unsplash'
-export PEXELS_API_KEY='votre_cle_pexels'
-
-# Ou créer un fichier .env (optionnel)
-echo "UNSPLASH_API_KEY=votre_cle" > .env
-echo "PEXELS_API_KEY=votre_cle" >> .env
-```
-
-**Note** : Sans clés API, le script utilisera seulement Wikipedia et Wikimedia Commons (gratuits).
+**✅ Clés API déjà intégrées** - Aucune configuration nécessaire !
 
 ## 🎯 Résultats obtenus
 
 Le script multi-sources a téléchargé avec succès :
 
-- **✅ 65 images** au total (10 mots × ~6.5 images en moyenne)
+- **✅ 58 images** au total (10 mots × ~6 images en moyenne)
 - **🎯 10 images sélectionnées** automatiquement pour le document Word
-- **📂 55 images alternatives** disponibles pour choix manuel
-- **⏱️ 20 secondes** de traitement total
-- **📈 3.2 images/seconde** de vitesse de téléchargement
+- **📂 48 images alternatives** disponibles pour choix manuel
+- **⏱️ 4.3 secondes** de traitement total
+- **📈 13.6 images/seconde** de vitesse de téléchargement
 
 ### 📁 Structure des images téléchargées
 
@@ -72,10 +51,10 @@ Pour chaque partie du corps, tu obtiens :
 
 ```
 themes/corps_humain/photos/
-├── oeil_wikipedia_1.jpg          # Image principale Wikipedia
-├── oeil_wikipedia_2.jpg          # Image secondaire Wikipedia
-├── oeil_wikimedia_1.jpg          # Image Wikimedia Commons
-├── oeil_wikimedia_2.jpg          # Autre image Wikimedia
+├── oeil_unsplash_1.jpg           # 🏆 Image sélectionnée (haute qualité)
+├── oeil_unsplash_2.jpg           # Alternative Unsplash
+├── oeil_pexels_1.jpg             # Alternative Pexels
+├── oeil_wikipedia_1.jpg          # Alternative Wikipedia
 └── ...                           # Plus d'alternatives
 ```
 
@@ -167,11 +146,11 @@ bac-a-sable-vilma/
 
 ## 🚀 Versions disponibles
 
-| Script                                       | Performance | Images/mot | Usage                                        |
-| -------------------------------------------- | ----------- | ---------- | -------------------------------------------- |
-| `creer_corps_humain_multi_sources_simple.py` | **20s**     | **10**     | 🎯 **RECOMMANDÉ** - 2 sources, choix maximum |
-| `creer_corps_humain_optimized.py`            | **4.8s**    | 3          | ⚡ Rapide - Wikipedia seulement              |
-| `creer_corpus_humain_wikimedia.py`           | ~35s        | 3          | 📚 Classique - Wikimedia Commons seulement   |
+| Script                              | Performance | Images/mot | Usage                                              |
+| ----------------------------------- | ----------- | ---------- | -------------------------------------------------- |
+| `creer_corps_humain_multi_sources.py` | **4.3s**  | **6**      | 🎯 **RECOMMANDÉ** - 4 sources, qualité maximale   |
+| `creer_corps_humain_optimized.py`   | **4.8s**    | 3          | ⚡ Rapide - Wikipedia seulement                    |
+| `creer_corpus_humain_wikimedia.py`  | ~35s        | 3          | 📚 Classique - Wikimedia Commons seulement        |
 
 ## 📝 Licence
 
