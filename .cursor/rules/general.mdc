@@ -1,0 +1,109 @@
+---
+alwaysApply: true
+---
+
+# Générateur de documents éducatifs en macédonien
+
+## 🎯 Objectif
+
+Créer des documents Word (.docx) avec grilles d'images et noms en **macédonien cyrillique**.
+
+## 📁 Structure
+
+```
+bac-a-sable-vilma/
+├── telecharger_images_wikimedia.py      # Module de téléchargement
+├── creer_corpus_humain_wikimedia.py     # Script automatique
+├── generer_document_theme.py            # Générateur .docx
+└── themes/
+    └── corps_humain/
+        ├── photos/                      # Images téléchargées
+        ├── selection.json               # Configuration
+        └── Corps Humain.docx            # Document généré
+```
+
+## 🚀 Usage rapide
+
+```bash
+# Tout en une commande (téléchargement + génération)
+python creer_corpus_humain_wikimedia.py
+```
+
+## 📝 Téléchargement d'images
+
+### Wikimedia Commons (gratuit, sans clé API)
+
+```python
+from telecharger_images_wikimedia import WikimediaDownloader
+
+d = WikimediaDownloader()
+d.search_and_download(
+    query="human eye close up",      # Requête simple
+    output_dir="themes/mon_theme/photos",
+    count=3,                          # 3 images par concept
+    filename_prefix="oeil"
+)
+```
+
+**Avantages :**
+
+- ✅ **100% gratuit** - Aucune clé API
+- ✅ **Libres de droits** - Domaine public / Creative Commons
+- ✅ **Images variées** - Photos, illustrations éducatives
+- ✅ **Filtre automatique** - Seulement JPG/PNG < 10 MB
+
+## 🎯 Bonnes pratiques pour les requêtes
+
+**Mots simples et descriptifs :**
+
+- ✅ `"human eye close up"` - Photos naturelles
+- ✅ `"human hand fingers"` - Images claires
+- ✅ `"macedonian ajvar food"` - Plats traditionnels
+
+**À éviter :**
+
+- ❌ `"anatomy medical diagram"` - Trop médical
+- ❌ `"abstract illustration"` - Trop abstrait
+
+## 📋 Configuration d'un thème
+
+Fichier `themes/{nom_theme}/selection.json` :
+
+```json
+{
+  "theme": "mon_theme",
+  "titre": "Мој наслов",
+  "colonnes": 3,
+  "elements": [
+    {
+      "nom_macedonien": "око",
+      "nom_francais": "œil",
+      "image_selectionnee": "oeil_1.jpg"
+    }
+  ]
+}
+```
+
+## 🎨 Exemple : Corps humain
+
+```python
+# Le script télécharge automatiquement :
+parties_corps = [
+    ("глава", "tête", "human head face portrait"),
+    ("око", "œil", "human eye close up"),
+    ("нос", "nez", "human nose close up"),
+    ("уста", "bouche", "human mouth lips smile"),
+    ("рака", "main", "human hand fingers"),
+    ("нога", "jambe", "human leg"),
+    ("срце", "cœur", "human heart organ"),
+    ("стомак", "estomac", "human stomach abdomen"),
+    ("уво", "oreille", "human ear close up"),
+    ("коса", "cheveux", "human hair texture")
+]
+```
+
+## 📦 Dépendances
+
+```bash
+pip install python-docx requests
+```
