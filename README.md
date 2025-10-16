@@ -11,8 +11,10 @@ pip install -r requirements.txt
 # 1. Créer un thème (ex: corps humain)
 python create_theme.py corps_humain
 
-# 2. Télécharger les images
-python telecharger_images.py corps_humain
+# 2. Télécharger les images (3 options)
+python telecharger_images.py corps_humain                    # Multi-sources classique
+python telecharger_images_clip.py corps_humain               # Multi-sources + scoring CLIP 🧠
+python scorer_images_clip.py corps_humain                    # Scoring CLIP seulement
 
 # 3. Générer le document Word
 python generer_document.py corps_humain
@@ -112,28 +114,53 @@ python generer_document_theme.py mon_theme
 ## 🎨 Thèmes disponibles
 
 ### Corps Humain
+
 ```bash
 python create_theme.py corps_humain
-python telecharger_images.py corps_humain
+python telecharger_images_clip.py corps_humain  # Avec scoring IA
 python generer_document.py corps_humain
 ```
+
 **Éléments :** глава (tête), око (œil), нос (nez), уста (bouche), рака (main), нога (jambe), срце (cœur), стомак (estomac), уво (oreille), коса (cheveux)
 
 ### Météo
+
 ```bash
 python create_theme.py meteo
-python telecharger_images.py meteo
+python telecharger_images_clip.py meteo  # Avec scoring IA
 python generer_document.py meteo
 ```
+
 **Éléments :** сонце (soleil), облак (nuage), дожд (pluie), снег (neige), ветер (vent), бура (orage), молња (éclair), виножито (arc-en-ciel)
 
 ### Animaux
+
 ```bash
 python create_theme.py animaux
-python telecharger_images.py animaux
+python telecharger_images_clip.py animaux  # Avec scoring IA
 python generer_document.py animaux
 ```
+
 **Éléments :** куче (chien), мачка (chat), птица (oiseau), риба (poisson), коњ (cheval), крава (vache), свиња (cochon), овца (mouton)
+
+## 🧠 Scoring CLIP
+
+Le module `scorer_images_clip.py` utilise l'IA pour :
+
+- **Analyser** chaque image téléchargée avec le modèle CLIP d'OpenAI
+- **Calculer** un score de pertinence (0-1) par rapport au mot anglais
+- **Sélectionner** automatiquement l'image avec le meilleur score
+
+**Exemple de sortie :**
+
+```
+🔍 Scoring images pour oeil (око)
+   📝 Requête: 'eye'
+   📸 oeil_unsplash_1.jpg → Score: 0.87
+   📸 oeil_pexels_1.jpg → Score: 0.64
+   📸 oeil_wikipedia_1.jpg → Score: 0.91 ⭐ MEILLEURE
+✅ Sélectionnée: oeil_wikipedia_1.jpg
+```
 
 ## 🎯 Bonnes pratiques
 
@@ -149,6 +176,8 @@ python generer_document.py animaux
 bac-a-sable-vilma/
 ├── create_theme.py                            # 🎨 Créateur de thèmes
 ├── telecharger_images.py                      # 📸 Téléchargeur multi-sources
+├── telecharger_images_clip.py                 # 🧠 Téléchargeur + scoring CLIP
+├── scorer_images_clip.py                      # 🧠 Module scoring IA CLIP
 ├── generer_document.py                        # 📄 Générateur Word
 ├── telecharger_images_multi_sources.py        # 🔧 Module téléchargement
 ├── config_api.py                              # 🔑 Configuration APIs
@@ -166,11 +195,13 @@ bac-a-sable-vilma/
 
 Le système est maintenant **100% générique** et réutilisable :
 
-| Script | Usage |
-|--------|-------|
-| `create_theme.py` | 🎨 Créer un nouveau thème |
-| `telecharger_images.py` | 📸 Télécharger les images (4 sources) |
-| `generer_document.py` | 📄 Générer le document Word |
+| Script                       | Usage                                     |
+| ---------------------------- | ----------------------------------------- |
+| `create_theme.py`            | 🎨 Créer un nouveau thème                 |
+| `telecharger_images.py`      | 📸 Télécharger les images (4 sources)     |
+| `telecharger_images_clip.py` | 🧠 Télécharger + scoring CLIP automatique |
+| `scorer_images_clip.py`      | 🧠 Scoring CLIP seulement                 |
+| `generer_document.py`        | 📄 Générer le document Word               |
 
 **Performance :** 4.1 secondes pour 8 mots × 6 images = 48 images
 
@@ -200,7 +231,7 @@ Chaque thème a sa propre configuration dans `themes/{nom}/config.json` :
   "elements": [
     {
       "mot_anglais": "sun",
-      "nom_francais": "soleil", 
+      "nom_francais": "soleil",
       "nom_macedonien": "сонце"
     }
   ]

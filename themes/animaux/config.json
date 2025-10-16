@@ -1,0 +1,49 @@
+{
+  "theme": "animaux",
+  "titre": "Животни",
+  "colonnes": 3,
+  "images_par_element": 6,
+  "max_workers": 20,
+  "elements": [
+    {
+      "mot_anglais": "dog",
+      "nom_francais": "chien",
+      "nom_macedonien": "куче"
+    },
+    {
+      "mot_anglais": "cat",
+      "nom_francais": "chat",
+      "nom_macedonien": "мачка"
+    },
+    {
+      "mot_anglais": "bird",
+      "nom_francais": "oiseau",
+      "nom_macedonien": "птица"
+    },
+    {
+      "mot_anglais": "fish",
+      "nom_francais": "poisson",
+      "nom_macedonien": "риба"
+    },
+    {
+      "mot_anglais": "horse",
+      "nom_francais": "cheval",
+      "nom_macedonien": "коњ"
+    },
+    {
+      "mot_anglais": "cow",
+      "nom_francais": "vache",
+      "nom_macedonien": "крава"
+    },
+    {
+      "mot_anglais": "pig",
+      "nom_francais": "cochon",
+      "nom_macedonien": "свиња"
+    },
+    {
+      "mot_anglais": "sheep",
+      "nom_francais": "mouton",
+      "nom_macedonien": "овца"
+    }
+  ]
+}
