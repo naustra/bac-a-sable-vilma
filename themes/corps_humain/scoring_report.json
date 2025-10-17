@@ -1,0 +1,571 @@
+{
+  "theme": "corps_humain",
+  "titre": "Делови на телото",
+  "date_analyse": "1760646479.7458458",
+  "elements": [
+    {
+      "nom_francais": "tete",
+      "nom_macedonien": "глава",
+      "requete_anglais": "head",
+      "image_selectionnee": "tete_unsplash_1.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "tete_unsplash_1.jpg",
+          "score": 0.9475,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "tete_unsplash_3.jpg",
+          "score": 0.9375,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "tete_3.jpg",
+          "score": 0.9276,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "tete_pexels_4.jpg",
+          "score": 0.9269,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "tete_pexels_5.jpg",
+          "score": 0.922,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "tete_pexels_6.jpg",
+          "score": 0.9174,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "tete_unsplash_2.jpg",
+          "score": 0.9113,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "tete_1.jpg",
+          "score": 0.9108,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "tete_2.jpg",
+          "score": 0.9069,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "oeil",
+      "nom_macedonien": "око",
+      "requete_anglais": "eye",
+      "image_selectionnee": "oeil_1.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "oeil_1.jpg",
+          "score": 0.9591,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "oeil_2.jpg",
+          "score": 0.9542,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "oeil_3.jpg",
+          "score": 0.9527,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "oeil_unsplash_1.jpg",
+          "score": 0.9499,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "oeil_pexels_4.jpg",
+          "score": 0.9477,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "oeil_unsplash_2.jpg",
+          "score": 0.9339,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "oeil_pexels_5.jpg",
+          "score": 0.9317,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "oeil_unsplash_3.jpg",
+          "score": 0.9301,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "oeil_pexels_6.jpg",
+          "score": 0.9256,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "nez",
+      "nom_macedonien": "нос",
+      "requete_anglais": "nose",
+      "image_selectionnee": "nez_unsplash_1.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "nez_unsplash_1.jpg",
+          "score": 0.9546,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "nez_unsplash_3.jpg",
+          "score": 0.9378,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "nez_2.jpg",
+          "score": 0.9364,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "nez_pexels_5.jpg",
+          "score": 0.9356,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "nez_3.jpg",
+          "score": 0.9221,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "nez_pexels_6.jpg",
+          "score": 0.9189,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "nez_pexels_4.jpg",
+          "score": 0.9156,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "nez_unsplash_2.jpg",
+          "score": 0.9101,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "nez_1.jpg",
+          "score": 0.9037,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "bouche",
+      "nom_macedonien": "уста",
+      "requete_anglais": "mouth",
+      "image_selectionnee": "bouche_pexels_6.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "bouche_pexels_6.jpg",
+          "score": 0.9426,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "bouche_pexels_5.jpg",
+          "score": 0.9406,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "bouche_unsplash_3.jpg",
+          "score": 0.9385,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "bouche_3.jpg",
+          "score": 0.9245,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "bouche_1.jpg",
+          "score": 0.9233,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "bouche_unsplash_1.jpg",
+          "score": 0.9206,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "bouche_unsplash_2.jpg",
+          "score": 0.9118,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "bouche_2.jpg",
+          "score": 0.8992,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "bouche_pexels_4.jpg",
+          "score": 0.893,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "main",
+      "nom_macedonien": "рака",
+      "requete_anglais": "hand",
+      "image_selectionnee": "main_unsplash_2.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "main_unsplash_2.jpg",
+          "score": 0.9574,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "main_unsplash_3.jpg",
+          "score": 0.9516,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "main_pexels_4.jpg",
+          "score": 0.9502,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "main_unsplash_1.jpg",
+          "score": 0.9427,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "main_pexels_6.jpg",
+          "score": 0.9363,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "main_3.jpg",
+          "score": 0.936,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "main_pexels_5.jpg",
+          "score": 0.9276,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "main_2.jpg",
+          "score": 0.9155,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "main_1.jpg",
+          "score": 0.9039,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "jambe",
+      "nom_macedonien": "нога",
+      "requete_anglais": "leg",
+      "image_selectionnee": "jambe_pexels_5.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "jambe_pexels_5.jpg",
+          "score": 0.9519,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "jambe_pexels_6.jpg",
+          "score": 0.9508,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "jambe_3.jpg",
+          "score": 0.9336,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "jambe_unsplash_1.jpg",
+          "score": 0.9329,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "jambe_1.jpg",
+          "score": 0.926,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "jambe_unsplash_3.jpg",
+          "score": 0.9215,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "jambe_pexels_4.jpg",
+          "score": 0.9165,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "jambe_unsplash_2.jpg",
+          "score": 0.9045,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "jambe_2.jpg",
+          "score": 0.898,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "coeur",
+      "nom_macedonien": "срце",
+      "requete_anglais": "heart",
+      "image_selectionnee": "coeur_1.jpg",
+      "total_images": 9,
+      "scores": [
+        {
+          "filename": "coeur_1.jpg",
+          "score": 0.9608,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "coeur_unsplash_1.jpg",
+          "score": 0.9545,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "coeur_pexels_5.jpg",
+          "score": 0.949,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "coeur_unsplash_3.jpg",
+          "score": 0.9456,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "coeur_unsplash_2.jpg",
+          "score": 0.9296,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "coeur_3.jpg",
+          "score": 0.928,
+          "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "coeur_pexels_6.jpg",
+          "score": 0.9264,
+          "selected": false,
+          "rank": 7
+        },
+        {
+          "filename": "coeur_pexels_4.jpg",
+          "score": 0.9155,
+          "selected": false,
+          "rank": 8
+        },
+        {
+          "filename": "coeur_2.jpg",
+          "score": 0.9124,
+          "selected": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "nom_francais": "estomac",
+      "nom_macedonien": "стомак",
+      "requete_anglais": "stomach",
+      "image_selectionnee": "estomac_unsplash_3.jpg",
+      "total_images": 4,
+      "scores": [
+        {
+          "filename": "estomac_unsplash_3.jpg",
+          "score": 0.9293,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "estomac_unsplash_2.jpg",
+          "score": 0.9221,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "estomac_unsplash_1.jpg",
+          "score": 0.9201,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "estomac_pexels_4.jpg",
+          "score": 0.9148,
+          "selected": false,
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "nom_francais": "oreille",
+      "nom_macedonien": "уво",
+      "requete_anglais": "ear",
+      "image_selectionnee": "oreille_unsplash_2.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "oreille_unsplash_2.jpg",
+          "score": 0.9618,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "oreille_unsplash_1.jpg",
+          "score": 0.9576,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "oreille_pexels_5.jpg",
+          "score": 0.9523,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "oreille_unsplash_3.jpg",
+          "score": 0.9451,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "oreille_pexels_4.jpg",
+          "score": 0.9331,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "oreille_pexels_6.jpg",
+          "score": 0.9032,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "nom_francais": "cheveux",
+      "nom_macedonien": "коса",
+      "requete_anglais": "hair",
+      "image_selectionnee": "cheveux_unsplash_2.jpg",
+      "total_images": 6,
+      "scores": [
+        {
+          "filename": "cheveux_unsplash_2.jpg",
+          "score": 0.95,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "cheveux_unsplash_1.jpg",
+          "score": 0.9347,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "cheveux_unsplash_3.jpg",
+          "score": 0.9324,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "cheveux_pexels_5.jpg",
+          "score": 0.927,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "cheveux_pexels_4.jpg",
+          "score": 0.9236,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "cheveux_pexels_6.jpg",
+          "score": 0.9042,
+          "selected": false,
+          "rank": 6
+        }
+      ]
+    }
+  ]
+}

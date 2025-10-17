@@ -43,6 +43,7 @@ class CLIPImageScorer:
     def score_image(self, image_path: str, text_query: str) -> float:
         """
         Calcule le score de similarité entre une image et une requête textuelle
+        Privilégie MASSIVEMENT les illustrations et animations adaptées aux enfants
 
         Args:
             image_path: Chemin vers l'image
@@ -52,15 +53,26 @@ class CLIPImageScorer:
             Score de similarité entre 0 et 1
         """
         try:
+            # BONUS : Privilégier les images avec des mots-clés "cartoon" ou "illustration" dans le nom
+            filename = os.path.basename(image_path).lower()
+            is_cartoon_or_illustration = any(keyword in filename for keyword in [
+                'cartoon', 'illustration', 'drawing', 'animated', 'cute', 'friendly'
+            ])
+
             # Charger et traiter l'image
             image = Image.open(image_path).convert("RGB")
 
-            # Créer des requêtes alternatives pour plus de précision
+            # Créer des requêtes simples et efficaces
             text_queries = [
-                text_query,
-                f"a photo of {text_query}",
-                f"image of {text_query}",
-                f"picture showing {text_query}"
+                # Priorité élevée : illustrations adaptées aux enfants
+                f"cartoon {text_query} for children",
+                f"cute illustration of {text_query}",
+                f"friendly {text_query} for kids",
+                # Priorité moyenne : photos adaptées aux enfants
+                f"cute {text_query}",
+                f"friendly {text_query}",
+                # Priorité faible : générique
+                text_query
             ]
 
             inputs = self.processor(
@@ -77,16 +89,34 @@ class CLIPImageScorer:
             with torch.no_grad():
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
-                # Prendre le maximum des scores pour les différentes formulations
-                max_score = torch.max(logits_per_image)
+
+                # Ponderer les scores de manière simple et efficace
+                weights = torch.tensor([
+                    1.5,  # cartoon for children (priorité élevée)
+                    1.3,  # cute illustration
+                    1.2,  # friendly for kids
+                    1.0,  # cute
+                    1.0,  # friendly
+                    0.8   # générique
+                ]).to(self.device)
+
+                # Appliquer les poids et prendre le score maximum
+                weighted_scores = logits_per_image * weights
+                max_score = torch.max(weighted_scores)
+
                 # Normaliser entre 0 et 1 avec une fonction sigmoid
                 normalized_score = 1 / (1 + torch.exp(-max_score / 10))
+
+                # BONUS simple : Ajouter un petit boost pour les images avec des mots-clés "cartoon"
+                if is_cartoon_or_illustration:
+                    normalized_score = min(1.0, normalized_score + 0.1)  # Boost de 10%
 
             return float(normalized_score.item())
 
         except Exception as e:
             print(f"⚠️  Erreur lors du scoring de {image_path}: {e}")
             return 0.0
+
 
     def score_batch(self, image_paths: List[str], text_query: str) -> List[Dict]:
         """

@@ -8,7 +8,7 @@ import json
 import os
 import argparse
 
-def create_theme_config(theme_name: str, elements: list, titre: str = None, colonnes: int = 3, images_par_element: int = 10) -> str:
+def create_theme_config(theme_name: str, elements: list, titre: str = None, colonnes: int = 3, images_par_element: int = 20) -> str:
     """
     Crée la configuration d'un nouveau thème
 
@@ -97,7 +97,7 @@ def main():
     parser.add_argument('theme', help='Nom du thème ou "list" pour voir les thèmes disponibles')
     parser.add_argument('--titre', help='Titre du document')
     parser.add_argument('--colonnes', type=int, default=3, help='Nombre de colonnes (défaut: 3)')
-    parser.add_argument('--images', type=int, default=10, help='Images par élément (défaut: 10)')
+    parser.add_argument('--images', type=int, default=20, help='Images par élément (défaut: 20)')
 
     args = parser.parse_args()
 

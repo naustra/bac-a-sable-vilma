@@ -28,10 +28,10 @@ API_HEADERS = {
         'Authorization': API_KEYS['pexels'] if API_KEYS['pexels'] else ''
     },
     'wikipedia': {
-        'User-Agent': 'EducationalImageDownloader/2.0 (educational use)'
+        'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0'
     },
     'wikimedia': {
-        'User-Agent': 'EducationalImageDownloader/2.0 (educational use)'
+        'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0'
     }
 }
 
@@ -60,7 +60,7 @@ def check_api_keys():
 
 def get_available_sources():
     """Retourne les sources disponibles selon les clés API configurées"""
-    sources = ['wikipedia', 'wikimedia']  # Toujours disponibles
+    sources = ['wikipedia', 'wikimedia']  # Réactivés avec l'API REST
 
     if API_KEYS['unsplash']:
         sources.append('unsplash')

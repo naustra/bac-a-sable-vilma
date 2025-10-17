@@ -11,9 +11,8 @@ pip install -r requirements.txt
 # 1. Créer un thème (ex: corps humain)
 python create_theme.py corps_humain
 
-# 2. Télécharger les images (3 options)
-python telecharger_images.py corps_humain                    # Multi-sources classique
-python telecharger_images_clip.py corps_humain               # Multi-sources + scoring CLIP 🧠
+# 2. Télécharger les images (2 options)
+python telecharger_images.py corps_humain                   # Multi-sources + scoring CLIP 🧠
 python scorer_images_clip.py corps_humain                    # Scoring CLIP seulement
 
 # 3. Générer le document Word
@@ -24,7 +23,7 @@ python generer_document.py corps_humain
 
 ### ⚡ Performance
 
-- **Multi-sources** : 4.3 secondes pour 10 mots × 10 images = 100 images
+- **Multi-sources** : 4.3 secondes pour 10 mots × 20 images = 200 images
 - **Parallélisme** : 20+ téléchargements simultanés
 - **Scoring CLIP optimisé** : Traitement par batch de 4 images (3.7x plus rapide)
 - **Sources variées** : Unsplash + Pexels + Wikipedia + Wikimedia Commons 🚀
@@ -35,10 +34,11 @@ Le script utilise **4 sources** automatiquement :
 
 - **🎯 Unsplash** : Photos modernes de haute qualité (priorité)
 - **📸 Pexels** : Photos variées et professionnelles
-- **📚 Wikipedia** : Images éducatives et anatomiques
-- **🌐 Wikimedia Commons** : Images libres de droits
+- **📚 Wikipedia** : Images éducatives via API REST MediaWiki
+- **🌐 Wikimedia Commons** : Images libres de droits via API REST
 
 **✅ Clés API déjà intégrées** - Aucune configuration nécessaire !
+**✅ API REST MediaWiki** - Conforme à la documentation officielle
 
 ## 🎯 Résultats obtenus
 
@@ -152,6 +152,24 @@ Le module `scorer_images_clip.py` utilise l'IA pour :
 - **Calculer** un score de pertinence (0-1) par rapport au mot anglais
 - **Sélectionner** automatiquement l'image avec le meilleur score
 
+## 👶 Images adaptées aux enfants
+
+### Filtres de sécurité automatiques
+
+Le système adapte automatiquement les requêtes et filtre les images pour les rendre **adaptées aux enfants** :
+
+- **Requêtes optimisées** : Ajoute des mots-clés comme "cute", "friendly", "colorful", "happy"
+- **Filtres de contenu** : Utilise les filtres de contenu élevés des APIs (Unsplash, Pexels)
+- **Vérifications de sécurité** : Filtre les mots-clés inappropriés dans les descriptions
+- **Taille d'image** : Évite les images trop petites (< 200px) ou trop grandes (> 5000px)
+
+**Exemples de requêtes adaptées :**
+
+- `"sun"` → `"bright sun happy sky"`
+- `"dog"` → `"cute dog puppy friendly"`
+- `"rain"` → `"rainbow after rain"`
+- `"storm"` → `"thunderstorm dramatic sky"`
+
 **Exemple de sortie :**
 
 ```
@@ -229,15 +247,14 @@ bac-a-sable-vilma/
 
 Le système est maintenant **100% générique** et réutilisable :
 
-| Script                       | Usage                                     |
-| ---------------------------- | ----------------------------------------- |
-| `create_theme.py`            | 🎨 Créer un nouveau thème                 |
-| `telecharger_images.py`      | 📸 Télécharger les images (4 sources)     |
-| `telecharger_images_clip.py` | 🧠 Télécharger + scoring CLIP automatique |
-| `scorer_images_clip.py`      | 🧠 Scoring CLIP seulement                 |
-| `generer_document.py`        | 📄 Générer le document Word               |
+| Script                  | Usage                                     |
+| ----------------------- | ----------------------------------------- |
+| `create_theme.py`       | 🎨 Créer un nouveau thème                 |
+| `telecharger_images.py` | 🧠 Télécharger + scoring CLIP automatique |
+| `scorer_images_clip.py` | 🧠 Scoring CLIP seulement                 |
+| `generer_document.py`   | 📄 Générer le document Word               |
 
-**Performance :** 4.1 secondes pour 8 mots × 10 images = 80 images
+**Performance :** 4.1 secondes pour 8 mots × 20 images = 160 images
 
 ## 🎯 Créer un nouveau thème
 
@@ -261,7 +278,7 @@ Chaque thème a sa propre configuration dans `themes/{nom}/config.json` :
   "theme": "meteo",
   "titre": "Времето",
   "colonnes": 4,
-  "images_par_element": 10,
+  "images_par_element": 20,
   "elements": [
     {
       "mot_anglais": "sun",
