@@ -238,7 +238,7 @@ class UnifiedImageDownloader:
         """Télécharge des images depuis Wikimedia Commons avec l'API authentifiée"""
         try:
             query_to_use = self._make_child_friendly_query(query)
-            
+
             # Essayer d'abord l'API Wikimedia authentifiée
             if 'wikimedia' in self.available_sources:
                 try:
@@ -247,17 +247,17 @@ class UnifiedImageDownloader:
                         'Authorization': f'Bearer {API_KEYS["wikimedia"]}',
                         'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0'
                     }
-                    
+
                     params = {
                         'q': query_to_use,
                         'limit': count,
                         'filetype': 'bitmap'
                     }
-                    
+
                     response = self.session.get(api_url, params=params, headers=headers, timeout=10)
                     response.raise_for_status()
                     data = response.json()
-                    
+
                     if 'pages' in data:
                         results = []
                         for page in data['pages']:
@@ -265,9 +265,18 @@ class UnifiedImageDownloader:
                                 # Utiliser l'URL de l'image complète
                                 image_url = page['thumbnail']['source']
                                 # Remplacer les paramètres de taille pour obtenir l'image complète
-                                image_url = image_url.replace('/thumb/', '/').split('/')[:-1]
-                                image_url = '/'.join(image_url)
-                                
+                                # Supprimer les paramètres de thumbnail tout en préservant le nom de fichier
+                                if '/thumb/' in image_url:
+                                    # Extraire le nom de fichier (dernière partie après le dernier '/')
+                                    filename = image_url.split('/')[-1]
+                                    # Remplacer /thumb/ par / et reconstruire l'URL sans les paramètres de taille
+                                    base_url = image_url.replace('/thumb/', '/')
+                                    # Supprimer les paramètres de taille (tout après le nom de fichier)
+                                    if 'px-' in filename:
+                                        filename = filename.split('px-')[-1]
+                                    # Reconstruire l'URL complète
+                                    image_url = '/'.join(base_url.split('/')[:-1]) + '/' + filename
+
                                 results.append({
                                     'url': image_url,
                                     'width': page['thumbnail'].get('width', 0),
@@ -276,13 +285,13 @@ class UnifiedImageDownloader:
                                     'description': page.get('title', query_to_use),
                                     'author': 'Wikimedia Commons'
                                 })
-                        
+
                         if results:
                             print(f"✅ Téléchargé {len(results)} images depuis Wikimedia Commons (API authentifiée)")
                             return results[:count]
                 except Exception as e:
                     print(f"⚠️  API Wikimedia authentifiée échouée: {e}, tentative avec l'API standard")
-            
+
             # Fallback vers l'API MediaWiki standard
             api_url = "https://commons.wikimedia.org/w/api.php"
             params = {
