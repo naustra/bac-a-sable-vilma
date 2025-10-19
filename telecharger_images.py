@@ -41,51 +41,8 @@ class UnifiedImageDownloader:
         print(f"🚀 Sources disponibles: {', '.join(self.available_sources)}")
 
     def _make_child_friendly_query(self, query: str) -> str:
-        """Adapte une requête pour être adaptée aux enfants"""
-        # Mots-clés pour rendre les images plus adaptées aux enfants
-        child_keywords = [
-            "cute", "friendly", "colorful", "bright", "happy", "smiling",
-            "cartoon", "illustration", "simple", "clear", "educational",
-            "child", "kid", "family", "safe", "innocent", "playful"
-        ]
-
-        # Requêtes spécifiques simples et efficaces
-        child_specific_queries = {
-            "dog": "cute cartoon dog for children",
-            "cat": "cute cartoon cat for kids",
-            "bird": "colorful cartoon bird for children",
-            "fish": "colorful cartoon fish for kids",
-            "horse": "friendly cartoon horse for children",
-            "cow": "friendly cartoon cow for kids",
-            "pig": "cute cartoon pig for children",
-            "sheep": "cute cartoon sheep for kids",
-            "head": "friendly cartoon face for children",
-            "eye": "friendly cartoon eye for kids",
-            "nose": "friendly cartoon nose for children",
-            "mouth": "smiling cartoon mouth for kids",
-            "hand": "friendly cartoon hand for children",
-            "leg": "friendly cartoon leg for kids",
-            "heart": "cartoon heart for children",
-            "stomach": "friendly cartoon body part for kids",
-            "ear": "friendly cartoon ear for children",
-            "hair": "colorful cartoon hair for kids",
-            "sun": "bright cartoon sun for children",
-            "cloud": "white cartoon cloud for kids",
-            "rain": "cartoon rainbow for children",
-            "snow": "white cartoon snow for kids",
-            "wind": "cartoon windmill for children",
-            "storm": "cartoon thunderstorm for kids",
-            "lightning": "cartoon lightning for children",
-            "rainbow": "colorful cartoon rainbow for kids"
-        }
-
-        # Utiliser une requête spécifique si disponible
-        if query.lower() in child_specific_queries:
-            return child_specific_queries[query.lower()]
-
-        # Sinon, ajouter des mots-clés adaptés aux enfants (simple et efficace)
-        child_query = f"cartoon {query} for children"
-        return child_query
+        """Retourne la requête telle quelle, sans modification"""
+        return query
 
     def download_from_unsplash(self, query: str, count: int = 5) -> List[Dict]:
         """Télécharge des images depuis Unsplash"""
@@ -97,14 +54,13 @@ class UnifiedImageDownloader:
             if not headers.get('Authorization'):
                 return []
 
-            # Adapter la requête pour les enfants
-            child_friendly_query = self._make_child_friendly_query(query)
+            # Utiliser la requête telle quelle
+            query_to_use = self._make_child_friendly_query(query)
 
             params = {
-                'query': child_friendly_query,
+                'query': query_to_use,
                 'per_page': count,
-                'orientation': 'squarish',
-                'content_filter': 'high'  # Filtre de contenu élevé
+                'orientation': 'squarish'
             }
 
             response = self.session.get(
@@ -145,11 +101,11 @@ class UnifiedImageDownloader:
             if not headers.get('Authorization'):
                 return []
 
-            # Adapter la requête pour les enfants
-            child_friendly_query = self._make_child_friendly_query(query)
+            # Utiliser la requête telle quelle
+            query_to_use = self._make_child_friendly_query(query)
 
             params = {
-                'query': child_friendly_query,
+                'query': query_to_use,
                 'per_page': count,
                 'orientation': 'square'
             }
@@ -185,13 +141,13 @@ class UnifiedImageDownloader:
     def download_from_wikipedia(self, query: str, count: int = 5) -> List[Dict]:
         """Télécharge des images depuis Wikipedia en utilisant l'API REST"""
         try:
-            # Adapter la requête pour les enfants
-            child_friendly_query = self._make_child_friendly_query(query)
+            # Utiliser la requête telle quelle
+            query_to_use = self._make_child_friendly_query(query)
 
             # Utiliser l'API REST de MediaWiki (selon la documentation officielle)
             search_url = "https://en.wikipedia.org/w/rest.php/v1/search/page"
             search_params = {
-                'q': child_friendly_query,
+                'q': query_to_use,
                 'limit': 3
             }
 
@@ -251,13 +207,13 @@ class UnifiedImageDownloader:
     def download_from_wikimedia(self, query: str, count: int = 5) -> List[Dict]:
         """Télécharge des images depuis Wikimedia Commons"""
         try:
-            # Adapter la requête pour les enfants
-            child_friendly_query = self._make_child_friendly_query(query)
+            # Utiliser la requête telle quelle
+            query_to_use = self._make_child_friendly_query(query)
 
             # Utiliser l'API REST de MediaWiki pour Wikimedia Commons
             search_url = "https://commons.wikimedia.org/w/rest.php/v1/search/page"
             search_params = {
-                'q': f'{child_friendly_query} filetype:bitmap',
+                'q': f'{query_to_use} filetype:bitmap',
                 'limit': count
             }
 
@@ -335,13 +291,13 @@ class UnifiedImageDownloader:
             return False
 
     def _is_child_friendly_image(self, image_path: str, image_info: Dict) -> bool:
-        """Vérifie si une image est adaptée aux enfants et privilégie les illustrations"""
+        """Vérifie si une image est appropriée en filtrant seulement le contenu inapproprié"""
         try:
             # Vérifier les métadonnées de l'image
             description = image_info.get('description', '').lower()
             author = image_info.get('author', '').lower()
 
-            # Mots-clés à éviter pour les enfants
+            # Mots-clés à éviter (contenu inapproprié)
             inappropriate_keywords = [
                 'adult', 'mature', 'sexy', 'nude', 'violence', 'blood', 'gore',
                 'scary', 'horror', 'frightening', 'terrifying', 'dark', 'evil',
@@ -354,16 +310,7 @@ class UnifiedImageDownloader:
                 if keyword in text_to_check:
                     return False
 
-            # BONUS : Privilégier les illustrations et animations
-            child_friendly_keywords = [
-                'cartoon', 'illustration', 'drawing', 'animated', 'cute', 'friendly',
-                'colorful', 'bright', 'happy', 'smiling', 'child', 'kid', 'educational'
-            ]
-
-            # Si l'image contient des mots-clés adaptés aux enfants, la privilégier
-            has_child_keywords = any(keyword in text_to_check for keyword in child_friendly_keywords)
-
-            # Vérifier la taille de l'image (éviter les images trop petites ou trop grandes)
+            # Vérifier la taille de l'image (éviter les images trop petites)
             with Image.open(image_path) as img:
                 width, height = img.size
 
@@ -371,11 +318,7 @@ class UnifiedImageDownloader:
                 if width < 200 or height < 200:
                     return False
 
-                # Images trop grandes (plus de 5000x5000) - peuvent être inappropriées
-                if width > 5000 or height > 5000:
-                    return False
-
-            # Privilégier les images avec des mots-clés adaptés aux enfants
+            # Accepter toutes les autres images
             return True
 
         except Exception:

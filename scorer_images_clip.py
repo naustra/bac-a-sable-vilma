@@ -56,16 +56,11 @@ class CLIPImageScorer:
             # Charger et traiter l'image
             image = Image.open(image_path).convert("RGB")
 
-            # Créer des requêtes pour privilégier des images de qualité
+            # Créer des requêtes pour évaluer la pertinence
             text_queries = [
-                # Priorité élevée : photos professionnelles de qualité
-                f"professional photo of {text_query}",
-                f"high quality image of {text_query}",
-                f"clean {text_query}",
-                # Priorité moyenne : images génériques mais de bonne qualité
-                f"clear {text_query}",
-                f"good {text_query}",
-                # Priorité faible : générique
+                f"photo of {text_query}",
+                f"image of {text_query}",
+                f"picture of {text_query}",
                 text_query
             ]
 
@@ -84,14 +79,12 @@ class CLIPImageScorer:
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
 
-                # Ponderer les scores pour privilégier la qualité
+                # Ponderer les scores de manière équitable
                 weights = torch.tensor([
-                    1.3,  # professional photo (priorité élevée)
-                    1.2,  # high quality image
-                    1.1,  # clean
-                    1.0,  # clear
-                    1.0,  # good
-                    0.9   # générique
+                    1.0,  # photo of
+                    1.0,  # image of
+                    1.0,  # picture of
+                    1.0   # générique
                 ]).to(self.device)
 
                 # Appliquer les poids et prendre le score maximum
@@ -163,11 +156,11 @@ class CLIPImageScorer:
             if not images:
                 return []
 
-            # Créer des requêtes pour privilégier des images de qualité
+            # Créer des requêtes pour évaluer la pertinence
             text_queries = [
-                f"professional photo of {text_query}",
-                f"high quality image of {text_query}",
-                f"clear {text_query}",
+                f"photo of {text_query}",
+                f"image of {text_query}",
+                f"picture of {text_query}",
                 text_query
             ]
 
@@ -187,11 +180,11 @@ class CLIPImageScorer:
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
 
-                # Ponderer les scores pour privilégier la qualité
+                # Ponderer les scores de manière équitable
                 weights = torch.tensor([
-                    1.3,  # professional photo
-                    1.2,  # high quality image
-                    1.1,  # clear
+                    1.0,  # photo of
+                    1.0,  # image of
+                    1.0,  # picture of
                     1.0   # générique
                 ]).to(self.device)
 
