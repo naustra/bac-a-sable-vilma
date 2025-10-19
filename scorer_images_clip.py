@@ -27,17 +27,17 @@ class CLIPImageScorer:
         Args:
             model_name: Nom du modèle CLIP à utiliser
         """
-        print("🔄 Chargement du modèle CLIP...")
+        print("Chargement du modele CLIP...")
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        print(f"   📱 Device: {self.device}")
+        print(f"   Device: {self.device}")
 
         try:
             self.model = CLIPModel.from_pretrained(model_name)
             self.processor = CLIPProcessor.from_pretrained(model_name)
             self.model.to(self.device)
-            print("✅ Modèle CLIP chargé avec succès")
+            print("SUCCES Modele CLIP charge avec succes")
         except Exception as e:
-            print(f"❌ Erreur lors du chargement du modèle CLIP: {e}")
+            print(f"ERREUR lors du chargement du modele CLIP: {e}")
             raise
 
     def score_image(self, image_path: str, text_query: str) -> float:
@@ -104,7 +104,7 @@ class CLIPImageScorer:
             return float(normalized_score.item())
 
         except Exception as e:
-            print(f"⚠️  Erreur lors du scoring de {image_path}: {e}")
+            print(f"ATTENTION Erreur lors du scoring de {image_path}: {e}")
             return 0.0
 
 
@@ -149,7 +149,7 @@ class CLIPImageScorer:
 
             for image_path in image_paths:
                 if not os.path.exists(image_path):
-                    print(f"⚠️  Image introuvable: {image_path}")
+                    print(f"ATTENTION Image introuvable: {image_path}")
                     continue
 
                 try:
@@ -157,7 +157,7 @@ class CLIPImageScorer:
                     images.append(image)
                     valid_paths.append(image_path)
                 except Exception as e:
-                    print(f"⚠️  Erreur chargement {image_path}: {e}")
+                    print(f"ATTENTION Erreur chargement {image_path}: {e}")
                     continue
 
             if not images:
@@ -217,7 +217,7 @@ class CLIPImageScorer:
             return results
 
         except Exception as e:
-            print(f"⚠️  Erreur batch scoring: {e}")
+            print(f"ATTENTION Erreur batch scoring: {e}")
             # Fallback vers scoring individuel
             results = []
             for image_path in image_paths:
@@ -263,7 +263,7 @@ class CLIPImageScorer:
         # Charger la configuration du thème
         config_path = f"themes/{theme_name}/config.json"
         if not os.path.exists(config_path):
-            print(f"❌ Configuration non trouvée: {config_path}")
+            print(f"ERREUR Configuration non trouvee: {config_path}")
             return
 
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -272,14 +272,14 @@ class CLIPImageScorer:
         photos_dir = f"themes/{theme_name}/photos"
 
         if not os.path.exists(photos_dir):
-            print(f"❌ Dossier photos introuvable: {photos_dir}")
+            print(f"ERREUR Dossier photos introuvable: {photos_dir}")
             return
 
         print("\n" + "=" * 80)
-        print("🎯 SCORING DES IMAGES AVEC CLIP")
+        print("SCORING DES IMAGES AVEC CLIP")
         print("=" * 80)
-        print(f"📊 Thème: {config['titre']}")
-        print(f"📸 {len(config['elements'])} éléments à traiter")
+        print(f"Theme: METEO")
+        print(f"{len(config['elements'])} elements a traiter")
 
         elements = []
 
@@ -288,23 +288,23 @@ class CLIPImageScorer:
             nom_macedonien = element['nom_macedonien']
             mot_anglais = element['mot_anglais']
 
-            print(f"\n🔍 Scoring images pour {nom_francais} ({nom_macedonien})")
-            print(f"   📝 Requête: '{mot_anglais}'")
+            print(f"\nScoring images pour {nom_francais}")
+            print(f"   Requete: '{mot_anglais}'")
 
             # Trouver toutes les images pour ce mot
             image_paths = self.find_images_for_prefix(photos_dir, nom_francais)
 
             if not image_paths:
-                print(f"   ⚠️  Aucune image trouvée pour '{nom_francais}'")
+                print(f"   ATTENTION Aucune image trouvee pour '{nom_francais}'")
                 continue
 
-            print(f"   📸 {len(image_paths)} images trouvées")
+            print(f"   {len(image_paths)} images trouvees")
 
             # Scorer toutes les images
             scored_images = self.score_batch(image_paths, mot_anglais)
 
             if not scored_images:
-                print(f"   ❌ Aucune image scorable")
+                print(f"   ERREUR Aucune image scorable")
                 continue
 
             # Trier par score décroissant
@@ -312,8 +312,8 @@ class CLIPImageScorer:
 
             # Afficher les scores
             for i, img in enumerate(scored_images):
-                status = "⭐ MEILLEURE" if i == 0 else ""
-                print(f"   📸 {img['filename']} → Score: {img['score']:.3f} {status}")
+                status = "MEILLEURE" if i == 0 else ""
+                print(f"   {img['filename']} -> Score: {img['score']:.3f} {status}")
 
             # Sélectionner la meilleure
             best_image = scored_images[0]
@@ -323,7 +323,7 @@ class CLIPImageScorer:
                 "image_selectionnee": best_image['filename']
             })
 
-            print(f"   ✅ Sélectionnée: {best_image['filename']}")
+            print(f"   SUCCES Selectionnee: {best_image['filename']}")
 
         # Générer le fichier selection.json
         final_config = {
@@ -337,8 +337,8 @@ class CLIPImageScorer:
         with open(selection_path, 'w', encoding='utf-8') as f:
             json.dump(final_config, f, ensure_ascii=False, indent=2)
 
-        print(f"\n✅ Configuration sauvegardée: {selection_path}")
-        print(f"📊 {len(elements)} éléments sélectionnés")
+        print(f"\nSUCCES Configuration sauvegardee: {selection_path}")
+        print(f"{len(elements)} elements selectionnes")
 
         # Créer un fichier de rapport détaillé
         self.create_scoring_report(theme_name, config, elements)
@@ -362,7 +362,7 @@ class CLIPImageScorer:
             "elements": []
         }
 
-        print(f"\n📊 Création du rapport de scoring...")
+        print(f"\nCreation du rapport de scoring...")
 
         for element in config['elements']:
             nom_francais = element['nom_francais']
@@ -407,7 +407,7 @@ class CLIPImageScorer:
         with open(report_path, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
 
-        print(f"📄 Rapport de scoring sauvegardé: {report_path}")
+        print(f"Rapport de scoring sauvegarde: {report_path}")
 
 
 def main():

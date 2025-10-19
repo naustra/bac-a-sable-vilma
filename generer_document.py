@@ -67,7 +67,7 @@ def create_word_document(theme_name: str, langue: str = "francais") -> str:
         titre_traduit = config['titre']  # Fallback sur le titre original
 
     print("=" * 80)
-    print(f"📄 GÉNÉRATION DU DOCUMENT WORD ({langue.upper()})")
+    print(f"GENERATION DU DOCUMENT WORD ({langue.upper()})")
     print("=" * 80)
 
     # Créer le document
@@ -119,19 +119,19 @@ def create_word_document(theme_name: str, langue: str = "francais") -> str:
                 cell_paragraph = cell.add_paragraph()
                 if langue == "anglais" and 'nom_anglais' in element:
                     cell_paragraph.add_run(f"({element['nom_anglais']})").italic = True
-                    print(f"   ✅ {element['nom_anglais']}: {element['image_selectionnee']}")
+                    print(f"   OK {element['nom_anglais']}: {element['image_selectionnee']}")
                 else:
                     cell_paragraph.add_run(f"({element['nom_francais']})").italic = True
-                    print(f"   ✅ {element['nom_francais']}: {element['image_selectionnee']}")
+                    print(f"   OK {element['nom_francais']}: {element['image_selectionnee']}")
                 cell_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
             except Exception as e:
                 nom_affiche = element['nom_anglais'] if langue == "anglais" and 'nom_anglais' in element else element['nom_francais']
-                print(f"   ❌ Erreur image {nom_affiche}: {e}")
+                print(f"   ERREUR image {nom_affiche}: {e}")
                 nom_fallback = element['nom_anglais'] if langue == "anglais" and 'nom_anglais' in element else element['nom_francais']
                 cell.text = f"{element['nom_macedonien']}\n({nom_fallback})"
         else:
-            print(f"   ⚠️  Image manquante: {image_path}")
+            print(f"   ATTENTION Image manquante: {image_path}")
             nom_fallback = element['nom_anglais'] if langue == "anglais" and 'nom_anglais' in element else element['nom_francais']
             cell.text = f"{element['nom_macedonien']}\n({nom_fallback})"
 
@@ -139,11 +139,11 @@ def create_word_document(theme_name: str, langue: str = "francais") -> str:
     output_path = f"themes/{theme_name}/{titre_traduit}.docx"
     doc.save(output_path)
 
-    print(f"\n✅ Document créé avec succès !")
-    print(f"📄 Titre : {titre_traduit}")
-    print(f"📊 {len(elements)} éléments")
-    print(f"📐 Tableau {lignes} × {colonnes}")
-    print(f"📁 Emplacement : {os.path.abspath(output_path)}")
+    print(f"\nSUCCES Document cree avec succes !")
+    print(f"Titre : {titre_traduit}")
+    print(f"{len(elements)} elements")
+    print(f"Tableau {lignes} x {colonnes}")
+    print(f"Emplacement : {os.path.abspath(output_path)}")
 
     return output_path
 
@@ -159,7 +159,7 @@ def create_bilingual_documents(theme_name: str) -> list:
     """
     documents_crees = []
 
-    print(f"🌍 Génération des documents bilingues pour le thème '{theme_name}'")
+    print(f"Generation des documents bilingues pour le theme '{theme_name}'")
     print("=" * 80)
 
     # Générer le document français
@@ -167,7 +167,7 @@ def create_bilingual_documents(theme_name: str) -> list:
         doc_fr = create_word_document(theme_name, "francais")
         documents_crees.append(doc_fr)
     except Exception as e:
-        print(f"❌ Erreur lors de la génération du document français: {e}")
+        print(f"ERREUR lors de la generation du document francais: {e}")
 
     print("\n" + "=" * 80)
 
@@ -176,7 +176,7 @@ def create_bilingual_documents(theme_name: str) -> list:
         doc_en = create_word_document(theme_name, "anglais")
         documents_crees.append(doc_en)
     except Exception as e:
-        print(f"❌ Erreur lors de la génération du document anglais: {e}")
+        print(f"ERREUR lors de la generation du document anglais: {e}")
 
     return documents_crees
 
@@ -207,20 +207,20 @@ def main():
         if args.bilingue:
             # Générer les deux versions
             documents_crees = create_bilingual_documents(args.theme)
-            print(f"\n💡 {len(documents_crees)} document(s) créé(s):")
+            print(f"\n{len(documents_crees)} document(s) cree(s):")
             for doc in documents_crees:
-                print(f"   📄 {doc}")
+                print(f"   {doc}")
         else:
             # Générer une seule version
             output_path = create_word_document(args.theme, args.langue)
-            print(f"\n💡 Le document est prêt : {output_path}")
+            print(f"\nLe document est pret : {output_path}")
 
     except FileNotFoundError as e:
-        print(f"❌ Erreur: {e}")
-        print(f"💡 Téléchargez d'abord les images avec:")
+        print(f"ERREUR: {e}")
+        print(f"Telechargez d'abord les images avec:")
         print(f"   python telecharger_images.py {args.theme}")
     except Exception as e:
-        print(f"❌ Erreur: {e}")
+        print(f"ERREUR: {e}")
 
 if __name__ == "__main__":
     main()

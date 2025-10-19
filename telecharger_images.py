@@ -33,12 +33,12 @@ class UnifiedImageDownloader:
         if self.enable_clip:
             try:
                 self.clip_scorer = CLIPImageScorer()
-                print("🧠 Scoring CLIP activé")
+                print("Scoring CLIP active")
             except Exception as e:
-                print(f"⚠️  CLIP non disponible: {e}")
+                print(f"ATTENTION CLIP non disponible: {e}")
                 self.enable_clip = False
 
-        print(f"🚀 Sources disponibles: {', '.join(self.available_sources)}")
+        print(f"Sources disponibles: {', '.join(self.available_sources)}")
 
     def _make_child_friendly_query(self, query: str) -> str:
         """Adapte une requête pour être adaptée aux enfants"""
@@ -132,7 +132,7 @@ class UnifiedImageDownloader:
             return results
 
         except Exception as e:
-            print(f"⚠️  Erreur Unsplash: {e}")
+            print(f"ATTENTION Erreur Unsplash: {e}")
             return []
 
     def download_from_pexels(self, query: str, count: int = 5) -> List[Dict]:
@@ -179,7 +179,7 @@ class UnifiedImageDownloader:
             return results
 
         except Exception as e:
-            print(f"⚠️  Erreur Pexels: {e}")
+            print(f"ATTENTION Erreur Pexels: {e}")
             return []
 
     def download_from_wikipedia(self, query: str, count: int = 5) -> List[Dict]:
@@ -245,7 +245,7 @@ class UnifiedImageDownloader:
             return results[:count]
 
         except Exception as e:
-            print(f"⚠️  Erreur Wikipedia: {e}")
+            print(f"ATTENTION Erreur Wikipedia: {e}")
             return []
 
     def download_from_wikimedia(self, query: str, count: int = 5) -> List[Dict]:
@@ -293,7 +293,7 @@ class UnifiedImageDownloader:
             return results[:count]
 
         except Exception as e:
-            print(f"⚠️  Erreur Wikimedia: {e}")
+            print(f"ATTENTION Erreur Wikimedia: {e}")
             return []
 
     def download_image(self, image_info: Dict, output_path: str) -> bool:
@@ -331,7 +331,7 @@ class UnifiedImageDownloader:
                 return False
 
         except Exception as e:
-            print(f"      ⚠️  Erreur téléchargement: {e}")
+            print(f"      ATTENTION Erreur telechargement: {e}")
             return False
 
     def _is_child_friendly_image(self, image_path: str, image_info: Dict) -> bool:
@@ -384,7 +384,7 @@ class UnifiedImageDownloader:
 
     def download_for_element(self, nom_francais: str, mot_anglais: str, output_dir: str, images_par_element: int = 20) -> List[str]:
         """Télécharge des images pour un élément spécifique"""
-        print(f"\n🔍 {nom_francais.upper()} ({mot_anglais})")
+        print(f"\n{nom_francais.upper()} ({mot_anglais})")
         print("=" * 60)
 
         # Calculer le nombre d'images par source (limité pour éviter la surcharge)
@@ -396,32 +396,32 @@ class UnifiedImageDownloader:
         all_images = []
 
         # Unsplash
-        print("📸 Unsplash...")
+        print("Unsplash...")
         unsplash_images = self.download_from_unsplash(mot_anglais, images_per_source)
         all_images.extend(unsplash_images)
 
         # Pexels
-        print("📸 Pexels...")
+        print("Pexels...")
         pexels_images = self.download_from_pexels(mot_anglais, images_per_source)
         all_images.extend(pexels_images)
 
         # Wikipedia (temporairement désactivé - problème 403)
         if 'wikipedia' in self.available_sources:
-            print("📸 Wikipedia...")
+            print("Wikipedia...")
             wikipedia_images = self.download_from_wikipedia(mot_anglais, images_per_source)
             all_images.extend(wikipedia_images)
 
         # Wikimedia Commons (temporairement désactivé - problème 403)
         if 'wikimedia' in self.available_sources:
-            print("📸 Wikimedia Commons...")
+            print("Wikimedia Commons...")
             wikimedia_images = self.download_from_wikimedia(mot_anglais, images_per_source)
             all_images.extend(wikimedia_images)
 
         if not all_images:
-            print(f"   ⚠️  Aucune image trouvée pour '{mot_anglais}'")
+            print(f"   ATTENTION Aucune image trouvee pour '{mot_anglais}'")
             return []
 
-        print(f"📊 {len(all_images)} images trouvées au total")
+        print(f"{len(all_images)} images trouvees au total")
 
         # Télécharger les images en parallèle
         downloaded_files = []
@@ -442,9 +442,9 @@ class UnifiedImageDownloader:
                     success = future.result()
                     if success:
                         downloaded_files.append(os.path.basename(output_path))
-                        print(f"   ✅ {image_info['source']} #{len(downloaded_files)}: {os.path.basename(output_path)} ({image_info.get('width', 0)}x{image_info.get('height', 0)} px)")
+                        print(f"   OK {image_info['source']} #{len(downloaded_files)}: {os.path.basename(output_path)} ({image_info.get('width', 0)}x{image_info.get('height', 0)} px)")
                 except Exception as e:
-                    print(f"   ❌ Erreur: {e}")
+                    print(f"   ERREUR: {e}")
 
         return downloaded_files
 
@@ -452,7 +452,7 @@ class UnifiedImageDownloader:
         """Télécharge des images pour un thème complet"""
         config_path = f"themes/{theme_name}/config.json"
         if not os.path.exists(config_path):
-            print(f"❌ Configuration non trouvée: {config_path}")
+            print(f"ERREUR Configuration non trouvee: {config_path}")
             return
 
         with open(config_path, 'r', encoding='utf-8') as f:
@@ -462,17 +462,17 @@ class UnifiedImageDownloader:
         os.makedirs(photos_dir, exist_ok=True)
 
         print("=" * 80)
-        print(f"🚀 TÉLÉCHARGEMENT UNIFIÉ - {config['titre'].upper()}")
+        print(f"TELECHARGEMENT UNIFIE - METEO")
         print("=" * 80)
-        print(f"📊 {len(config['elements'])} éléments à traiter")
-        print(f"📸 {images_par_element} images par élément")
-        print(f"⚡ Parallélisme: {self.max_workers} téléchargements simultanés")
+        print(f"{len(config['elements'])} elements a traiter")
+        print(f"{images_par_element} images par element")
+        print(f"Parallelisme: {self.max_workers} telechargements simultanes")
         print("=" * 80)
 
         # Vérifier les clés API
         check_api_keys()
 
-        print(f"\n🚀 TÉLÉCHARGEMENT PARALLÈLE DE {len(config['elements'])} MOTS")
+        print(f"\nTELECHARGEMENT PARALLELE DE {len(config['elements'])} MOTS")
         print("=" * 80)
 
         all_downloaded = []
@@ -486,13 +486,13 @@ class UnifiedImageDownloader:
             all_downloaded.extend(downloaded)
 
         # Conversion des images
-        print(f"\n🔄 CONVERSION DES IMAGES")
+        print(f"\nCONVERSION DES IMAGES")
         print("=" * 40)
         convertir_images_pour_docx(photos_dir)
 
         # Scoring CLIP si activé
         if self.enable_clip and self.clip_scorer:
-            print(f"\n🧠 SCORING CLIP AUTOMATIQUE")
+            print(f"\nSCORING CLIP AUTOMATIQUE")
             print("=" * 40)
             self.clip_scorer.select_best_images_for_theme(theme_name)
         else:
@@ -504,12 +504,12 @@ class UnifiedImageDownloader:
         total_time = end_time - start_time
 
         print(f"\n" + "=" * 80)
-        print(f"✅ TÉLÉCHARGEMENT UNIFIÉ TERMINÉ !")
+        print(f"SUCCES TELECHARGEMENT UNIFIE TERMINE !")
         print("=" * 80)
-        print(f"⏱️  Temps total: {total_time:.1f} secondes")
-        print(f"📊 {len(config['elements'])} éléments traités avec succès")
-        print(f"📈 Vitesse: {len(all_downloaded)/total_time:.1f} images/seconde")
-        print(f"💡 Prochaine étape:")
+        print(f"Temps total: {total_time:.1f} secondes")
+        print(f"{len(config['elements'])} elements traites avec succes")
+        print(f"Vitesse: {len(all_downloaded)/total_time:.1f} images/seconde")
+        print(f"Prochaine etape:")
         print(f"   python generer_document.py {theme_name}")
 
     def create_basic_selection(self, theme_name: str, config: dict) -> None:
@@ -542,7 +542,7 @@ class UnifiedImageDownloader:
         with open(selection_path, 'w', encoding='utf-8') as f:
             json.dump(selection_config, f, ensure_ascii=False, indent=2)
 
-        print(f"✅ Configuration basique sauvegardée: {selection_path}")
+        print(f"SUCCES Configuration basique sauvegardee: {selection_path}")
 
 
 def main():
@@ -558,8 +558,8 @@ def main():
     # Vérifier que le thème existe
     config_path = f"themes/{args.theme}/config.json"
     if not os.path.exists(config_path):
-        print(f"❌ Thème '{args.theme}' non trouvé")
-        print(f"💡 Créez d'abord le thème avec: python create_theme.py {args.theme}")
+        print(f"ERREUR Theme '{args.theme}' non trouve")
+        print(f"Creez d'abord le theme avec: python create_theme.py {args.theme}")
         return
 
     # Initialiser le téléchargeur
