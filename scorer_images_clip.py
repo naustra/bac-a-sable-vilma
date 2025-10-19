@@ -56,11 +56,13 @@ class CLIPImageScorer:
             # Charger et traiter l'image
             image = Image.open(image_path).convert("RGB")
 
-            # Créer des requêtes pour évaluer la pertinence
+            # Créer des requêtes pour privilégier les images éducatives et réalistes
             text_queries = [
+                f"educational {text_query}",
+                f"realistic {text_query}",
+                f"clear {text_query}",
+                f"simple {text_query}",
                 f"photo of {text_query}",
-                f"image of {text_query}",
-                f"picture of {text_query}",
                 text_query
             ]
 
@@ -79,12 +81,14 @@ class CLIPImageScorer:
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
 
-                # Ponderer les scores de manière équitable
+                # Ponderer les scores pour privilégier les images éducatives
                 weights = torch.tensor([
+                    1.3,  # educational (priorité élevée)
+                    1.2,  # realistic
+                    1.1,  # clear
+                    1.1,  # simple
                     1.0,  # photo of
-                    1.0,  # image of
-                    1.0,  # picture of
-                    1.0   # générique
+                    0.9   # générique
                 ]).to(self.device)
 
                 # Appliquer les poids et prendre le score maximum
@@ -156,11 +160,13 @@ class CLIPImageScorer:
             if not images:
                 return []
 
-            # Créer des requêtes pour évaluer la pertinence
+            # Créer des requêtes pour privilégier les images éducatives et réalistes
             text_queries = [
+                f"educational {text_query}",
+                f"realistic {text_query}",
+                f"clear {text_query}",
+                f"simple {text_query}",
                 f"photo of {text_query}",
-                f"image of {text_query}",
-                f"picture of {text_query}",
                 text_query
             ]
 
@@ -180,12 +186,14 @@ class CLIPImageScorer:
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
 
-                # Ponderer les scores de manière équitable
+                # Ponderer les scores pour privilégier les images éducatives
                 weights = torch.tensor([
+                    1.3,  # educational (priorité élevée)
+                    1.2,  # realistic
+                    1.1,  # clear
+                    1.1,  # simple
                     1.0,  # photo of
-                    1.0,  # image of
-                    1.0,  # picture of
-                    1.0   # générique
+                    0.9   # générique
                 ]).to(self.device)
 
                 # Pour chaque image, calculer le score pondéré

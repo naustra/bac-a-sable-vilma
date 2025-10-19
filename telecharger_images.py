@@ -299,7 +299,7 @@ class UnifiedImageDownloader:
 
             # Mots-clés à éviter (contenu inapproprié)
             inappropriate_keywords = [
-                'adult', 'mature', 'sexy', 'nude', 'violence', 'blood', 'gore',
+                'adult', 'mature', 'sexy', 'nude', 'naked', 'violence', 'blood', 'gore',
                 'scary', 'horror', 'frightening', 'terrifying', 'dark', 'evil',
                 'weapon', 'gun', 'knife', 'dangerous', 'aggressive', 'angry'
             ]

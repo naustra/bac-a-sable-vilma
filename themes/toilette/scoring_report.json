@@ -1,26 +1,50 @@
 {
   "theme": "toilette",
   "titre": "Тоалет",
-  "date_analyse": "1760900852.4844728",
+  "date_analyse": "1760904183.4620192",
   "elements": [
     {
       "nom_francais": "toilettes",
       "nom_macedonien": "тоалет",
       "requete_anglais": "toilet",
-      "image_selectionnee": "toilettes_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "toilettes_unsplash_1.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "toilettes_pexels_1.jpg",
-          "score": 0.9285,
+          "filename": "toilettes_unsplash_1.jpg",
+          "score": 0.9723,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "toilettes_pexels_2.jpg",
-          "score": 0.8981,
+          "filename": "toilettes_unsplash_3.jpg",
+          "score": 0.9669,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "toilettes_pexels_4.jpg",
+          "score": 0.9616,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "toilettes_unsplash_2.jpg",
+          "score": 0.9614,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "toilettes_pexels_5.jpg",
+          "score": 0.9536,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "toilettes_pexels_6.jpg",
+          "score": 0.9501,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -28,20 +52,38 @@
       "nom_francais": "lavabo",
       "nom_macedonien": "лавоабо",
       "requete_anglais": "sink",
-      "image_selectionnee": "lavabo_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "lavabo_unsplash_1.jpg",
+      "total_images": 5,
       "scores": [
         {
-          "filename": "lavabo_pexels_1.jpg",
-          "score": 0.8852,
+          "filename": "lavabo_unsplash_1.jpg",
+          "score": 0.9649,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "lavabo_pexels_2.jpg",
-          "score": 0.8317,
+          "filename": "lavabo_pexels_6.jpg",
+          "score": 0.9534,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "lavabo_unsplash_3.jpg",
+          "score": 0.9523,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "lavabo_unsplash_2.jpg",
+          "score": 0.9477,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "lavabo_pexels_4.jpg",
+          "score": 0.9235,
+          "selected": false,
+          "rank": 5
         }
       ]
     },
@@ -49,20 +91,44 @@
       "nom_francais": "baignoire",
       "nom_macedonien": "када",
       "requete_anglais": "bathtub",
-      "image_selectionnee": "baignoire_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "baignoire_pexels_5.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "baignoire_pexels_1.jpg",
-          "score": 0.9093,
+          "filename": "baignoire_pexels_5.jpg",
+          "score": 0.9752,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "baignoire_pexels_2.jpg",
-          "score": 0.8749,
+          "filename": "baignoire_pexels_6.jpg",
+          "score": 0.9702,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "baignoire_pexels_4.jpg",
+          "score": 0.9683,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "baignoire_unsplash_3.jpg",
+          "score": 0.964,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "baignoire_unsplash_1.jpg",
+          "score": 0.9632,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "baignoire_unsplash_2.jpg",
+          "score": 0.9572,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -70,20 +136,44 @@
       "nom_francais": "douche",
       "nom_macedonien": "туш",
       "requete_anglais": "shower",
-      "image_selectionnee": "douche_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "douche_unsplash_1.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "douche_pexels_1.jpg",
-          "score": 0.8914,
+          "filename": "douche_unsplash_1.jpg",
+          "score": 0.9785,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "douche_pexels_2.jpg",
-          "score": 0.8876,
+          "filename": "douche_unsplash_3.jpg",
+          "score": 0.9748,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "douche_unsplash_2.jpg",
+          "score": 0.9725,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "douche_pexels_5.jpg",
+          "score": 0.9604,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "douche_pexels_4.jpg",
+          "score": 0.9589,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "douche_pexels_6.jpg",
+          "score": 0.9539,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -91,20 +181,44 @@
       "nom_francais": "serviette",
       "nom_macedonien": "пешкир",
       "requete_anglais": "towel",
-      "image_selectionnee": "serviette_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "serviette_pexels_4.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "serviette_pexels_1.jpg",
-          "score": 0.8944,
+          "filename": "serviette_pexels_4.jpg",
+          "score": 0.9714,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "serviette_pexels_2.jpg",
-          "score": 0.8793,
+          "filename": "serviette_unsplash_1.jpg",
+          "score": 0.9568,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "serviette_pexels_5.jpg",
+          "score": 0.9357,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "serviette_pexels_6.jpg",
+          "score": 0.9335,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "serviette_unsplash_2.jpg",
+          "score": 0.932,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "serviette_unsplash_3.jpg",
+          "score": 0.9302,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -112,20 +226,44 @@
       "nom_francais": "miroir",
       "nom_macedonien": "огледало",
       "requete_anglais": "mirror",
-      "image_selectionnee": "miroir_pexels_2.jpg",
-      "total_images": 2,
+      "image_selectionnee": "miroir_pexels_4.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "miroir_pexels_2.jpg",
-          "score": 0.9575,
+          "filename": "miroir_pexels_4.jpg",
+          "score": 0.9751,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "miroir_pexels_1.jpg",
-          "score": 0.9187,
+          "filename": "miroir_unsplash_1.jpg",
+          "score": 0.9746,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "miroir_unsplash_2.jpg",
+          "score": 0.9655,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "miroir_pexels_6.jpg",
+          "score": 0.953,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "miroir_pexels_5.jpg",
+          "score": 0.9518,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "miroir_unsplash_3.jpg",
+          "score": 0.9487,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -133,20 +271,44 @@
       "nom_francais": "savon",
       "nom_macedonien": "сапун",
       "requete_anglais": "soap",
-      "image_selectionnee": "savon_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "savon_unsplash_3.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "savon_pexels_1.jpg",
-          "score": 0.8844,
+          "filename": "savon_unsplash_3.jpg",
+          "score": 0.9738,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "savon_pexels_2.jpg",
-          "score": 0.8757,
+          "filename": "savon_unsplash_2.jpg",
+          "score": 0.9658,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "savon_unsplash_1.jpg",
+          "score": 0.9618,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "savon_pexels_5.jpg",
+          "score": 0.9525,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "savon_pexels_6.jpg",
+          "score": 0.9362,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "savon_pexels_4.jpg",
+          "score": 0.9296,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -154,20 +316,44 @@
       "nom_francais": "brosse à dents",
       "nom_macedonien": "четка за заби",
       "requete_anglais": "toothbrush",
-      "image_selectionnee": "brosse à dents_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "brosse à dents_unsplash_2.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "brosse à dents_pexels_1.jpg",
-          "score": 0.9109,
+          "filename": "brosse à dents_unsplash_2.jpg",
+          "score": 0.9822,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "brosse à dents_pexels_2.jpg",
-          "score": 0.8675,
+          "filename": "brosse à dents_pexels_4.jpg",
+          "score": 0.9821,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "brosse à dents_unsplash_1.jpg",
+          "score": 0.9661,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "brosse à dents_pexels_5.jpg",
+          "score": 0.9596,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "brosse à dents_pexels_6.jpg",
+          "score": 0.9585,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "brosse à dents_unsplash_3.jpg",
+          "score": 0.9565,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -175,20 +361,38 @@
       "nom_francais": "dentifrice",
       "nom_macedonien": "паста за заби",
       "requete_anglais": "toothpaste",
-      "image_selectionnee": "dentifrice_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "dentifrice_unsplash_1.jpg",
+      "total_images": 5,
       "scores": [
         {
-          "filename": "dentifrice_pexels_1.jpg",
-          "score": 0.8884,
+          "filename": "dentifrice_unsplash_1.jpg",
+          "score": 0.9765,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "dentifrice_pexels_2.jpg",
-          "score": 0.8849,
+          "filename": "dentifrice_unsplash_2.jpg",
+          "score": 0.9627,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "dentifrice_pexels_4.jpg",
+          "score": 0.9303,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "dentifrice_unsplash_3.jpg",
+          "score": 0.9117,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "dentifrice_pexels_5.jpg",
+          "score": 0.9103,
+          "selected": false,
+          "rank": 5
         }
       ]
     },
@@ -196,20 +400,44 @@
       "nom_francais": "shampoing",
       "nom_macedonien": "шампон",
       "requete_anglais": "shampoo",
-      "image_selectionnee": "shampoing_pexels_2.jpg",
-      "total_images": 2,
+      "image_selectionnee": "shampoing_pexels_4.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "shampoing_pexels_2.jpg",
-          "score": 0.9036,
+          "filename": "shampoing_pexels_4.jpg",
+          "score": 0.9712,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "shampoing_pexels_1.jpg",
-          "score": 0.8971,
+          "filename": "shampoing_unsplash_2.jpg",
+          "score": 0.9687,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "shampoing_unsplash_1.jpg",
+          "score": 0.9655,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "shampoing_pexels_5.jpg",
+          "score": 0.9635,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "shampoing_unsplash_3.jpg",
+          "score": 0.9431,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "shampoing_pexels_6.jpg",
+          "score": 0.9308,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -217,20 +445,44 @@
       "nom_francais": "papier toilette",
       "nom_macedonien": "тоалетна хартија",
       "requete_anglais": "toilet paper",
-      "image_selectionnee": "papier toilette_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "papier toilette_pexels_6.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "papier toilette_pexels_1.jpg",
-          "score": 0.9191,
+          "filename": "papier toilette_pexels_6.jpg",
+          "score": 0.9842,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "papier toilette_pexels_2.jpg",
-          "score": 0.8976,
+          "filename": "papier toilette_unsplash_3.jpg",
+          "score": 0.976,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "papier toilette_pexels_4.jpg",
+          "score": 0.9625,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "papier toilette_unsplash_2.jpg",
+          "score": 0.9575,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "papier toilette_unsplash_1.jpg",
+          "score": 0.9485,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "papier toilette_pexels_5.jpg",
+          "score": 0.9368,
+          "selected": false,
+          "rank": 6
         }
       ]
     },
@@ -238,20 +490,44 @@
       "nom_francais": "tapis de bain",
       "nom_macedonien": "бањски тепих",
       "requete_anglais": "bath mat",
-      "image_selectionnee": "tapis de bain_pexels_1.jpg",
-      "total_images": 2,
+      "image_selectionnee": "tapis de bain_pexels_5.jpg",
+      "total_images": 6,
       "scores": [
         {
-          "filename": "tapis de bain_pexels_1.jpg",
-          "score": 0.8933,
+          "filename": "tapis de bain_pexels_5.jpg",
+          "score": 0.9664,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "tapis de bain_pexels_2.jpg",
-          "score": 0.8751,
+          "filename": "tapis de bain_pexels_6.jpg",
+          "score": 0.9628,
           "selected": false,
           "rank": 2
+        },
+        {
+          "filename": "tapis de bain_unsplash_2.jpg",
+          "score": 0.9623,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "tapis de bain_unsplash_1.jpg",
+          "score": 0.9607,
+          "selected": false,
+          "rank": 4
+        },
+        {
+          "filename": "tapis de bain_unsplash_3.jpg",
+          "score": 0.953,
+          "selected": false,
+          "rank": 5
+        },
+        {
+          "filename": "tapis de bain_pexels_4.jpg",
+          "score": 0.8854,
+          "selected": false,
+          "rank": 6
         }
       ]
     }
