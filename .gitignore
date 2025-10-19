@@ -34,6 +34,10 @@ themes/*/photos/*.gif
 # Documents générés
 themes/*/*.docx
 
+# Fichiers de scoring et sélection générés
+themes/*/scoring_report.json
+themes/*/selection.json
+
 # IDE
 .vscode/
 .idea/
