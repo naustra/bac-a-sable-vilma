@@ -2,7 +2,7 @@
   "theme": "meteo",
   "titre": "Времето",
   "colonnes": 3,
-  "images_par_element": 10,
+  "images_par_element": 20,
   "max_workers": 20,
   "elements": [
     {

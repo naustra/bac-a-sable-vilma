@@ -2,7 +2,7 @@
   "theme": "corps_humain",
   "titre": "Делови на телото",
   "colonnes": 3,
-  "images_par_element": 6,
+  "images_par_element": 20,
   "max_workers": 20,
   "elements": [
     {

@@ -6,68 +6,62 @@
     {
       "nom_macedonien": "кауч",
       "nom_francais": "canapé",
-      "image_selectionnee": "canapé_unsplash_2.jpg",
-      "nom_anglais": "sofa"
+      "image_selectionnee": "canapé_unsplash_2.jpg"
     },
     {
       "nom_macedonien": "фотелја",
       "nom_francais": "fauteuil",
-      "image_selectionnee": "fauteuil_unsplash_1.jpg",
-      "nom_anglais": "armchair"
+      "image_selectionnee": "fauteuil_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "мала маса",
       "nom_francais": "table basse",
-      "image_selectionnee": "table basse_unsplash_3.jpg",
-      "nom_anglais": "coffee table"
+      "image_selectionnee": "table basse_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "странична маса",
       "nom_francais": "table d'appoint",
-      "image_selectionnee": "table d'appoint_pexels_2.jpg"
+      "image_selectionnee": "table d'appoint_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "библиотека",
       "nom_francais": "bibliothèque",
-      "image_selectionnee": "bibliothèque_unsplash_3.jpg",
-      "nom_anglais": "bookshelf"
+      "image_selectionnee": "bibliothèque_pexels_3.jpg"
     },
     {
       "nom_macedonien": "витрина",
       "nom_francais": "vitrine",
-      "image_selectionnee": "vitrine_pexels_1.jpg"
+      "image_selectionnee": "vitrine_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "телевизор",
       "nom_francais": "télévision",
-      "image_selectionnee": "télévision_unsplash_1.jpg",
-      "nom_anglais": "television"
+      "image_selectionnee": "télévision_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "подна лампа",
       "nom_francais": "lampe sur pied",
-      "image_selectionnee": "lampe sur pied_pexels_2.jpg"
+      "image_selectionnee": "lampe sur pied_unsplash_2.jpg"
     },
     {
       "nom_macedonien": "маса лампа",
       "nom_francais": "lampe de table",
-      "image_selectionnee": "lampe de table_pexels_2.jpg"
+      "image_selectionnee": "lampe de table_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "таванска лампа",
       "nom_francais": "plafonnier",
-      "image_selectionnee": "plafonnier_pexels_3.jpg"
+      "image_selectionnee": "plafonnier_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "тепих",
       "nom_francais": "tapis",
-      "image_selectionnee": "tapis_unsplash_1.jpg",
-      "nom_anglais": "rug"
+      "image_selectionnee": "tapis_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "традиционален тепих",
       "nom_francais": "tapis traditionnel",
-      "image_selectionnee": "tapis traditionnel_pexels_2.jpg"
+      "image_selectionnee": "tapis traditionnel_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "завеса",
@@ -77,13 +71,12 @@
     {
       "nom_macedonien": "везена завеса",
       "nom_francais": "rideau brodé",
-      "image_selectionnee": "rideau brodé_pexels_3.jpg"
+      "image_selectionnee": "rideau brodé_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "перница",
       "nom_francais": "coussin",
-      "image_selectionnee": "coussin_unsplash_2.jpg",
-      "nom_anglais": "cushion"
+      "image_selectionnee": "coussin_pexels_1.jpg"
     },
     {
       "nom_macedonien": "покривка",
@@ -93,7 +86,7 @@
     {
       "nom_macedonien": "камин",
       "nom_francais": "cheminée",
-      "image_selectionnee": "cheminée_unsplash_2.jpg"
+      "image_selectionnee": "cheminée_pexels_1.jpg"
     },
     {
       "nom_macedonien": "икона",
@@ -123,8 +116,7 @@
     {
       "nom_macedonien": "ваза",
       "nom_francais": "vase",
-      "image_selectionnee": "vase_pexels_3.jpg",
-      "nom_anglais": "vase"
+      "image_selectionnee": "vase_pexels_1.jpg"
     },
     {
       "nom_macedonien": "дрвена скулптура",
@@ -144,7 +136,7 @@
     {
       "nom_macedonien": "бакарни тацни",
       "nom_francais": "plateau en cuivre",
-      "image_selectionnee": "plateau en cuivre_pexels_3.jpg"
+      "image_selectionnee": "plateau en cuivre_pexels_1.jpg"
     },
     {
       "nom_macedonien": "тамбура",
@@ -159,7 +151,7 @@
     {
       "nom_macedonien": "хармоника",
       "nom_francais": "accordéon",
-      "image_selectionnee": "accordéon_pexels_3.jpg"
+      "image_selectionnee": "accordéon_pexels_1.jpg"
     },
     {
       "nom_macedonien": "собна растение",
@@ -194,17 +186,17 @@
     {
       "nom_macedonien": "везена чаршав",
       "nom_francais": "nappe brodée",
-      "image_selectionnee": "nappe brodée_pexels_3.jpg"
+      "image_selectionnee": "nappe brodée_pexels_1.jpg"
     },
     {
       "nom_macedonien": "мал чаршав",
       "nom_francais": "napperon",
-      "image_selectionnee": "napperon_pexels_3.jpg"
+      "image_selectionnee": "napperon_pexels_2.jpg"
     },
     {
       "nom_macedonien": "држи за списанија",
       "nom_francais": "porte-revues",
-      "image_selectionnee": "porte-revues_pexels_3.jpg"
+      "image_selectionnee": "porte-revues_pexels_1.jpg"
     },
     {
       "nom_macedonien": "кошница за чување",
