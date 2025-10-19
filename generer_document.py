@@ -185,9 +185,8 @@ def main():
     parser = argparse.ArgumentParser(description='Génère un document Word pour un thème donné')
     parser.add_argument('theme', help='Nom du thème (ex: corps_humain, meteo)')
     parser.add_argument('--preview', action='store_true', help='Affiche la configuration sans générer')
-    parser.add_argument('--bilingue', action='store_true', help='Génère les documents en français et en anglais')
-    parser.add_argument('--langue', choices=['francais', 'anglais'], default='francais',
-                       help='Langue du document (par défaut: francais)')
+    parser.add_argument('--langue', choices=['francais', 'anglais'],
+                       help='Langue du document (par défaut: génère les deux versions)')
 
     args = parser.parse_args()
 
@@ -204,16 +203,16 @@ def main():
                     print(f"     {langue}: {titre}")
             return
 
-        if args.bilingue:
-            # Générer les deux versions
+        if args.langue:
+            # Générer une seule version
+            output_path = create_word_document(args.theme, args.langue)
+            print(f"\nLe document est pret : {output_path}")
+        else:
+            # Générer les deux versions (comportement par défaut)
             documents_crees = create_bilingual_documents(args.theme)
             print(f"\n{len(documents_crees)} document(s) cree(s):")
             for doc in documents_crees:
                 print(f"   {doc}")
-        else:
-            # Générer une seule version
-            output_path = create_word_document(args.theme, args.langue)
-            print(f"\nLe document est pret : {output_path}")
 
     except FileNotFoundError as e:
         print(f"ERREUR: {e}")

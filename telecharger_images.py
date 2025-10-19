@@ -235,12 +235,55 @@ class UnifiedImageDownloader:
             return []
 
     def download_from_wikimedia(self, query: str, count: int = 5) -> List[Dict]:
-        """Télécharge des images depuis Wikimedia Commons"""
+        """Télécharge des images depuis Wikimedia Commons avec l'API authentifiée"""
         try:
-            # Utiliser la requête telle quelle
             query_to_use = self._make_child_friendly_query(query)
-
-            # Utiliser l'API MediaWiki standard pour Wikimedia Commons
+            
+            # Essayer d'abord l'API Wikimedia authentifiée
+            if 'wikimedia' in self.available_sources:
+                try:
+                    api_url = "https://api.wikimedia.org/core/v1/commons/search/file"
+                    headers = {
+                        'Authorization': f'Bearer {API_KEYS["wikimedia"]}',
+                        'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0'
+                    }
+                    
+                    params = {
+                        'q': query_to_use,
+                        'limit': count,
+                        'filetype': 'bitmap'
+                    }
+                    
+                    response = self.session.get(api_url, params=params, headers=headers, timeout=10)
+                    response.raise_for_status()
+                    data = response.json()
+                    
+                    if 'pages' in data:
+                        results = []
+                        for page in data['pages']:
+                            if 'thumbnail' in page and 'source' in page['thumbnail']:
+                                # Utiliser l'URL de l'image complète
+                                image_url = page['thumbnail']['source']
+                                # Remplacer les paramètres de taille pour obtenir l'image complète
+                                image_url = image_url.replace('/thumb/', '/').split('/')[:-1]
+                                image_url = '/'.join(image_url)
+                                
+                                results.append({
+                                    'url': image_url,
+                                    'width': page['thumbnail'].get('width', 0),
+                                    'height': page['thumbnail'].get('height', 0),
+                                    'source': 'wikimedia',
+                                    'description': page.get('title', query_to_use),
+                                    'author': 'Wikimedia Commons'
+                                })
+                        
+                        if results:
+                            print(f"✅ Téléchargé {len(results)} images depuis Wikimedia Commons (API authentifiée)")
+                            return results[:count]
+                except Exception as e:
+                    print(f"⚠️  API Wikimedia authentifiée échouée: {e}, tentative avec l'API standard")
+            
+            # Fallback vers l'API MediaWiki standard
             api_url = "https://commons.wikimedia.org/w/api.php"
             params = {
                 'action': 'query',
@@ -303,10 +346,11 @@ class UnifiedImageDownloader:
                 if len(results) >= count:
                     break
 
+            print(f"✅ Téléchargé {len(results)} images depuis Wikimedia Commons (API standard)")
             return results[:count]
 
         except Exception as e:
-            print(f"ATTENTION Erreur Wikimedia: {e}")
+            print(f"❌ Erreur Wikimedia Commons: {e}")
             return []
 
     def download_from_pixabay(self, query: str, count: int = 5) -> List[Dict]:
