@@ -14,7 +14,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from PIL import Image
 import io
-from config_api import API_URLS, API_HEADERS, get_available_sources, check_api_keys
+from config_api import API_URLS, API_HEADERS, API_KEYS, get_available_sources, check_api_keys
 from convertir_images import convertir_images_pour_docx
 from scorer_images_clip import CLIPImageScorer
 
@@ -139,61 +139,91 @@ class UnifiedImageDownloader:
             return []
 
     def download_from_wikipedia(self, query: str, count: int = 5) -> List[Dict]:
-        """Télécharge des images depuis Wikipedia en utilisant l'API REST"""
+        """Télécharge des images depuis Wikipedia en utilisant l'API MediaWiki"""
         try:
             # Utiliser la requête telle quelle
             query_to_use = self._make_child_friendly_query(query)
 
-            # Utiliser l'API REST de MediaWiki (selon la documentation officielle)
-            search_url = "https://en.wikipedia.org/w/rest.php/v1/search/page"
-            search_params = {
-                'q': query_to_use,
-                'limit': 3
+            # Utiliser l'API MediaWiki standard
+            api_url = "https://en.wikipedia.org/w/api.php"
+            params = {
+                'action': 'query',
+                'format': 'json',
+                'list': 'search',
+                'srsearch': query_to_use,
+                'srlimit': 3,
+                'srnamespace': 0  # Articles seulement
             }
 
-            # Headers selon la documentation MediaWiki
             headers = {
-                'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0',
-                'Accept': 'application/json'
+                'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0'
             }
 
-            response = self.session.get(search_url, params=search_params, headers=headers, timeout=10)
+            response = self.session.get(api_url, params=params, headers=headers, timeout=10)
             response.raise_for_status()
             data = response.json()
 
             results = []
-            for page in data.get('pages', []):
+            search_results = data.get('query', {}).get('search', [])
+
+            for page in search_results:
                 title = page['title']
 
-                # Utiliser l'API REST pour récupérer les images de la page
-                page_url = f"https://en.wikipedia.org/w/rest.php/v1/page/{title.replace(' ', '_')}"
-                page_response = self.session.get(page_url, headers=headers, timeout=10)
+                # Récupérer les images de cette page
+                image_params = {
+                    'action': 'query',
+                    'format': 'json',
+                    'titles': title,
+                    'prop': 'images',
+                    'imlimit': count
+                }
 
-                if page_response.status_code == 200:
-                    page_data = page_response.json()
+                image_response = self.session.get(api_url, params=image_params, headers=headers, timeout=10)
+                if image_response.status_code == 200:
+                    image_data = image_response.json()
+                    pages = image_data.get('query', {}).get('pages', {})
 
-                    # Chercher les images dans le contenu de la page
-                    if 'source' in page_data:
-                        content = page_data['source']
-                        # Extraire les liens d'images (format [[File:...]])
-                        import re
-                        image_matches = re.findall(r'\[\[File:([^\]]+\.(?:jpg|jpeg|png))', content, re.IGNORECASE)
+                    for page_id, page_info in pages.items():
+                        images = page_info.get('images', [])
 
-                        for image_filename in image_matches[:count]:
-                            # Construire l'URL de l'image
-                            image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_filename[:1]}/{image_filename[:2]}/{image_filename}/1000px-{image_filename}"
+                        for img in images[:count]:
+                            img_title = img['title']
+                            if img_title.lower().endswith(('.jpg', '.jpeg', '.png')):
+                                # Utiliser l'API pour obtenir l'URL directe de l'image
+                                img_params = {
+                                    'action': 'query',
+                                    'format': 'json',
+                                    'titles': img_title,
+                                    'prop': 'imageinfo',
+                                    'iiprop': 'url|size',
+                                    'iiurlwidth': 640
+                                }
 
-                            results.append({
-                                'url': image_url,
-                                'source': 'wikipedia',
-                                'description': f"Image from {title}",
-                                'author': 'Wikipedia',
-                                'width': 1000,
-                                'height': 1000
-                            })
+                                img_response = self.session.get(api_url, params=img_params, headers=headers, timeout=10)
+                                if img_response.status_code == 200:
+                                    img_data = img_response.json()
+                                    img_pages = img_data.get('query', {}).get('pages', {})
 
-                            if len(results) >= count:
-                                break
+                                    for img_page_id, img_page_info in img_pages.items():
+                                        if 'imageinfo' in img_page_info:
+                                            imageinfo = img_page_info['imageinfo'][0]
+                                            image_url = imageinfo.get('thumburl', imageinfo.get('url'))
+
+                                            if image_url:
+                                                results.append({
+                                                    'url': image_url,
+                                                    'source': 'wikipedia',
+                                                    'description': f"Image from {title}",
+                                                    'author': 'Wikipedia',
+                                                    'width': 640,
+                                                    'height': 640
+                                                })
+
+                                                if len(results) >= count:
+                                                    break
+
+                                if len(results) >= count:
+                                    break
 
                 if len(results) >= count:
                     break
@@ -210,46 +240,122 @@ class UnifiedImageDownloader:
             # Utiliser la requête telle quelle
             query_to_use = self._make_child_friendly_query(query)
 
-            # Utiliser l'API REST de MediaWiki pour Wikimedia Commons
-            search_url = "https://commons.wikimedia.org/w/rest.php/v1/search/page"
-            search_params = {
-                'q': f'{query_to_use} filetype:bitmap',
-                'limit': count
+            # Utiliser l'API MediaWiki standard pour Wikimedia Commons
+            api_url = "https://commons.wikimedia.org/w/api.php"
+            params = {
+                'action': 'query',
+                'format': 'json',
+                'list': 'search',
+                'srsearch': f'{query_to_use} filetype:bitmap',
+                'srnamespace': 6,  # Namespace des fichiers
+                'srlimit': count
             }
 
-            # Headers selon la documentation MediaWiki
             headers = {
-                'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0',
-                'Accept': 'application/json'
+                'User-Agent': 'EducationalImageDownloader/2.0 (https://github.com/educational-tools; educational use) requests/2.31.0'
             }
 
-            response = self.session.get(search_url, params=search_params, headers=headers, timeout=10)
+            response = self.session.get(api_url, params=params, headers=headers, timeout=10)
             response.raise_for_status()
             data = response.json()
 
             results = []
-            for page in data.get('pages', []):
+            search_results = data.get('query', {}).get('search', [])
+
+            for page in search_results:
                 title = page['title']
 
                 # Vérifier que c'est bien un fichier image
                 if title.startswith('File:') and title.lower().endswith(('.jpg', '.jpeg', '.png')):
-                    # Construire l'URL de l'image
-                    filename = title.replace('File:', '')
-                    image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{filename[:1]}/{filename[:2]}/{filename}/1000px-{filename}"
+                    # Utiliser l'API pour obtenir l'URL directe de l'image
+                    file_params = {
+                        'action': 'query',
+                        'format': 'json',
+                        'titles': title,
+                        'prop': 'imageinfo',
+                        'iiprop': 'url|size',
+                        'iiurlwidth': 640
+                    }
 
-                    results.append({
-                        'url': image_url,
-                        'source': 'wikimedia',
-                        'description': page.get('description', ''),
-                        'author': 'Wikimedia Commons',
-                        'width': 1000,
-                        'height': 1000
-                    })
+                    file_response = self.session.get(api_url, params=file_params, headers=headers, timeout=10)
+                    if file_response.status_code == 200:
+                        file_data = file_response.json()
+                        pages = file_data.get('query', {}).get('pages', {})
+
+                        for page_id, page_info in pages.items():
+                            if 'imageinfo' in page_info:
+                                imageinfo = page_info['imageinfo'][0]
+                                image_url = imageinfo.get('thumburl', imageinfo.get('url'))
+
+                                if image_url:
+                                    results.append({
+                                        'url': image_url,
+                                        'source': 'wikimedia',
+                                        'description': f"Image from Wikimedia Commons: {title}",
+                                        'author': 'Wikimedia Commons',
+                                        'width': 640,
+                                        'height': 640
+                                    })
+
+                                    if len(results) >= count:
+                                        break
+
+                if len(results) >= count:
+                    break
 
             return results[:count]
 
         except Exception as e:
             print(f"ATTENTION Erreur Wikimedia: {e}")
+            return []
+
+    def download_from_pixabay(self, query: str, count: int = 5) -> List[Dict]:
+        """Télécharge des images depuis Pixabay"""
+        if 'pixabay' not in self.available_sources:
+            return []
+
+        try:
+            # Utiliser la requête telle quelle
+            query_to_use = self._make_child_friendly_query(query)
+
+            params = {
+                'key': API_KEYS['pixabay'],
+                'q': query_to_use,
+                'image_type': 'photo',
+                'orientation': 'all',
+                'category': 'all',
+                'min_width': 200,
+                'min_height': 200,
+                'safesearch': 'true',
+                'order': 'popular',
+                'per_page': count
+            }
+
+            response = self.session.get(
+                API_URLS['pixabay'],
+                params=params,
+                timeout=10
+            )
+            response.raise_for_status()
+
+            data = response.json()
+            results = []
+
+            for hit in data.get('hits', []):
+                if hit.get('webformatURL'):
+                    results.append({
+                        'url': hit['webformatURL'],
+                        'source': 'pixabay',
+                        'description': hit.get('tags', ''),
+                        'author': hit.get('user', ''),
+                        'width': hit.get('webformatWidth', 0),
+                        'height': hit.get('webformatHeight', 0)
+                    })
+
+            return results
+
+        except Exception as e:
+            print(f"ATTENTION Erreur Pixabay: {e}")
             return []
 
     def download_image(self, image_info: Dict, output_path: str) -> bool:
@@ -347,6 +453,11 @@ class UnifiedImageDownloader:
         print("Pexels...")
         pexels_images = self.download_from_pexels(mot_anglais, images_per_source)
         all_images.extend(pexels_images)
+
+        # Pixabay
+        print("Pixabay...")
+        pixabay_images = self.download_from_pixabay(mot_anglais, images_per_source)
+        all_images.extend(pixabay_images)
 
         # Wikipedia (temporairement désactivé - problème 403)
         if 'wikipedia' in self.available_sources:

@@ -92,7 +92,9 @@ class CLIPImageScorer:
                 ]).to(self.device)
 
                 # Appliquer les poids et prendre le score maximum
-                weighted_scores = logits_per_image * weights
+                # logits_per_image a la forme [1, num_queries], on prend la première ligne
+                image_logits = logits_per_image[0]  # Shape: [num_queries]
+                weighted_scores = image_logits * weights
                 max_score = torch.max(weighted_scores)
 
                 # Normaliser entre 0 et 1 avec une fonction sigmoid
@@ -199,7 +201,8 @@ class CLIPImageScorer:
                 # Pour chaque image, calculer le score pondéré
                 batch_scores = []
                 for i in range(len(images)):
-                    image_logits = logits_per_image[i]
+                    # logits_per_image a la forme [batch_size, num_queries]
+                    image_logits = logits_per_image[i]  # Shape: [num_queries]
                     weighted_scores = image_logits * weights
                     max_score = torch.max(weighted_scores)
                     # Normaliser entre 0 et 1 avec une fonction sigmoid
