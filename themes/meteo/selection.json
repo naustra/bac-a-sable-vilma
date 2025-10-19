@@ -1,47 +1,115 @@
 {
   "theme": "meteo",
   "titre": "Времето",
-  "colonnes": 4,
+  "colonnes": 3,
   "elements": [
     {
       "nom_macedonien": "сонце",
       "nom_francais": "soleil",
+      "nom_anglais": "sun",
       "image_selectionnee": "soleil_unsplash_3.jpg"
     },
     {
       "nom_macedonien": "облак",
       "nom_francais": "nuage",
-      "image_selectionnee": "nuage_unsplash_2.jpg"
+      "nom_anglais": "cloud",
+      "image_selectionnee": "nuage_unsplash_1.jpg"
     },
     {
       "nom_macedonien": "дожд",
       "nom_francais": "pluie",
+      "nom_anglais": "rain",
       "image_selectionnee": "pluie_unsplash_3.jpg"
     },
     {
       "nom_macedonien": "снег",
       "nom_francais": "neige",
-      "image_selectionnee": "neige_unsplash_1.jpg"
+      "nom_anglais": "snow",
+      "image_selectionnee": "neige_unsplash_2.jpg"
     },
     {
       "nom_macedonien": "ветер",
       "nom_francais": "vent",
-      "image_selectionnee": "vent_unsplash_1.jpg"
+      "nom_anglais": "wind",
+      "image_selectionnee": "vent_unsplash_2.jpg"
     },
     {
       "nom_macedonien": "бура",
       "nom_francais": "orage",
+      "nom_anglais": "storm",
       "image_selectionnee": "orage_pexels_5.jpg"
     },
     {
       "nom_macedonien": "молња",
       "nom_francais": "eclair",
+      "nom_anglais": "lightning",
       "image_selectionnee": "eclair_pexels_5.jpg"
+    },
+    {
+      "nom_macedonien": "магла",
+      "nom_francais": "brouillard",
+      "nom_anglais": "fog",
+      "image_selectionnee": "brouillard_unsplash_2.jpg"
+    },
+    {
+      "nom_macedonien": "измаглица",
+      "nom_francais": "brume",
+      "nom_anglais": "mist",
+      "image_selectionnee": "brume_unsplash_2.jpg"
+    },
+    {
+      "nom_macedonien": "град",
+      "nom_francais": "grêle",
+      "nom_anglais": "hail",
+      "image_selectionnee": "grêle_pexels_2.jpg"
+    },
+    {
+      "nom_macedonien": "грмотевица",
+      "nom_francais": "tonnerre",
+      "nom_anglais": "thunder",
+      "image_selectionnee": "tonnerre_pexels_2.jpg"
     },
     {
       "nom_macedonien": "виножито",
       "nom_francais": "arc-en-ciel",
+      "nom_anglais": "rainbow",
       "image_selectionnee": "arc-en-ciel_pexels_6.jpg"
+    },
+    {
+      "nom_macedonien": "температура",
+      "nom_francais": "température",
+      "nom_anglais": "temperature",
+      "image_selectionnee": "température_pexels_2.jpg"
+    },
+    {
+      "nom_macedonien": "топло",
+      "nom_francais": "chaud",
+      "nom_anglais": "hot",
+      "image_selectionnee": "chaud_pexels_1.jpg"
+    },
+    {
+      "nom_macedonien": "студено",
+      "nom_francais": "froid",
+      "nom_anglais": "cold",
+      "image_selectionnee": "froid_pexels_2.jpg"
+    },
+    {
+      "nom_macedonien": "бурано",
+      "nom_francais": "orageux",
+      "nom_anglais": "stormy",
+      "image_selectionnee": "orageux_pexels_1.jpg"
+    },
+    {
+      "nom_macedonien": "сончево",
+      "nom_francais": "ensoleillé",
+      "nom_anglais": "sunny",
+      "image_selectionnee": "ensoleillé_pexels_1.jpg"
+    },
+    {
+      "nom_macedonien": "облачно",
+      "nom_francais": "nuageux",
+      "nom_anglais": "cloudy",
+      "image_selectionnee": "nuageux_pexels_2.jpg"
     }
   ]
 }

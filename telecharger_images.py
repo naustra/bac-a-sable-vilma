@@ -83,8 +83,8 @@ class UnifiedImageDownloader:
         if query.lower() in child_specific_queries:
             return child_specific_queries[query.lower()]
 
-        # Sinon, ajouter des mots-clés adaptés aux enfants (MASSIVEMENT privilégiant illustrations)
-        child_query = f"cartoon illustration for children {query} {' '.join(child_keywords[:3])}"
+        # Sinon, ajouter des mots-clés adaptés aux enfants (simple et efficace)
+        child_query = f"cartoon {query} for children"
         return child_query
 
     def download_from_unsplash(self, query: str, count: int = 5) -> List[Dict]:

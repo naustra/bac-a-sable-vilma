@@ -132,7 +132,7 @@ python telecharger_images_clip.py meteo  # Avec scoring IA
 python generer_document.py meteo
 ```
 
-**Éléments :** сонце (soleil), облак (nuage), дожд (pluie), снег (neige), ветер (vent), бура (orage), молња (éclair), виножито (arc-en-ciel)
+**Éléments :** сонце (soleil), облак (nuage), дожд (pluie), снег (neige), ветер (vent), бура (orage), молња (éclair), магла (brouillard), измаглица (brume), град (grêle), грмотевица (tonnerre), виножито (arc-en-ciel), температура (température), топло (chaud), студено (froid), бурано (orageux), сончево (ensoleillé), облачно (nuageux)
 
 ### Animaux
 
@@ -165,10 +165,10 @@ Le système adapte automatiquement les requêtes et filtre les images pour les r
 
 **Exemples de requêtes adaptées :**
 
-- `"sun"` → `"bright sun happy sky"`
-- `"dog"` → `"cute dog puppy friendly"`
-- `"rain"` → `"rainbow after rain"`
-- `"storm"` → `"thunderstorm dramatic sky"`
+- `"sun"` → `"bright cartoon sun for children"`
+- `"dog"` → `"cute cartoon dog for children"`
+- `"rain"` → `"cartoon rainbow for children"`
+- `"storm"` → `"cartoon thunderstorm for kids"`
 
 **Exemple de sortie :**
 
@@ -277,7 +277,7 @@ Chaque thème a sa propre configuration dans `themes/{nom}/config.json` :
 {
   "theme": "meteo",
   "titre": "Времето",
-  "colonnes": 4,
+  "colonnes": 3,
   "images_par_element": 20,
   "elements": [
     {

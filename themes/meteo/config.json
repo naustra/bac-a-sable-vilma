@@ -1,7 +1,7 @@
 {
   "theme": "meteo",
   "titre": "Времето",
-  "colonnes": 4,
+  "colonnes": 3,
   "images_par_element": 10,
   "max_workers": 20,
   "elements": [
@@ -41,9 +41,59 @@
       "nom_macedonien": "молња"
     },
     {
+      "mot_anglais": "fog",
+      "nom_francais": "brouillard",
+      "nom_macedonien": "магла"
+    },
+    {
+      "mot_anglais": "mist",
+      "nom_francais": "brume",
+      "nom_macedonien": "измаглица"
+    },
+    {
+      "mot_anglais": "hail",
+      "nom_francais": "grêle",
+      "nom_macedonien": "град"
+    },
+    {
+      "mot_anglais": "thunder",
+      "nom_francais": "tonnerre",
+      "nom_macedonien": "грмотевица"
+    },
+    {
       "mot_anglais": "rainbow",
       "nom_francais": "arc-en-ciel",
       "nom_macedonien": "виножито"
+    },
+    {
+      "mot_anglais": "temperature",
+      "nom_francais": "température",
+      "nom_macedonien": "температура"
+    },
+    {
+      "mot_anglais": "hot",
+      "nom_francais": "chaud",
+      "nom_macedonien": "топло"
+    },
+    {
+      "mot_anglais": "cold",
+      "nom_francais": "froid",
+      "nom_macedonien": "студено"
+    },
+    {
+      "mot_anglais": "stormy",
+      "nom_francais": "orageux",
+      "nom_macedonien": "бурано"
+    },
+    {
+      "mot_anglais": "sunny",
+      "nom_francais": "ensoleillé",
+      "nom_macedonien": "сончево"
+    },
+    {
+      "mot_anglais": "cloudy",
+      "nom_francais": "nuageux",
+      "nom_macedonien": "облачно"
     }
   ]
 }

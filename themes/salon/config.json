@@ -1,0 +1,209 @@
+{
+  "theme": "salon",
+  "titre": "Дневна соба",
+  "colonnes": 4,
+  "images_par_element": 20,
+  "max_workers": 20,
+  "elements": [
+    {
+      "mot_anglais": "sofa",
+      "nom_francais": "canapé",
+      "nom_macedonien": "кауч"
+    },
+    {
+      "mot_anglais": "armchair",
+      "nom_francais": "fauteuil",
+      "nom_macedonien": "фотелја"
+    },
+    {
+      "mot_anglais": "coffee table",
+      "nom_francais": "table basse",
+      "nom_macedonien": "мала маса"
+    },
+    {
+      "mot_anglais": "side table",
+      "nom_francais": "table d'appoint",
+      "nom_macedonien": "странична маса"
+    },
+    {
+      "mot_anglais": "bookshelf",
+      "nom_francais": "bibliothèque",
+      "nom_macedonien": "библиотека"
+    },
+    {
+      "mot_anglais": "display cabinet",
+      "nom_francais": "vitrine",
+      "nom_macedonien": "витрина"
+    },
+    {
+      "mot_anglais": "television",
+      "nom_francais": "télévision",
+      "nom_macedonien": "телевизор"
+    },
+    {
+      "mot_anglais": "floor lamp",
+      "nom_francais": "lampe sur pied",
+      "nom_macedonien": "подна лампа"
+    },
+    {
+      "mot_anglais": "table lamp",
+      "nom_francais": "lampe de table",
+      "nom_macedonien": "маса лампа"
+    },
+    {
+      "mot_anglais": "ceiling light",
+      "nom_francais": "plafonnier",
+      "nom_macedonien": "таванска лампа"
+    },
+    {
+      "mot_anglais": "carpet",
+      "nom_francais": "tapis",
+      "nom_macedonien": "тепих"
+    },
+    {
+      "mot_anglais": "traditional carpet",
+      "nom_francais": "tapis traditionnel",
+      "nom_macedonien": "традиционален тепих"
+    },
+    {
+      "mot_anglais": "curtain",
+      "nom_francais": "rideau",
+      "nom_macedonien": "завеса"
+    },
+    {
+      "mot_anglais": "embroidered curtain",
+      "nom_francais": "rideau brodé",
+      "nom_macedonien": "везена завеса"
+    },
+    {
+      "mot_anglais": "cushion",
+      "nom_francais": "coussin",
+      "nom_macedonien": "перница"
+    },
+    {
+      "mot_anglais": "throw blanket",
+      "nom_francais": "plaid",
+      "nom_macedonien": "покривка"
+    },
+    {
+      "mot_anglais": "fireplace",
+      "nom_francais": "cheminée",
+      "nom_macedonien": "камин"
+    },
+    {
+      "mot_anglais": "icon",
+      "nom_francais": "icône",
+      "nom_macedonien": "икона"
+    },
+    {
+      "mot_anglais": "family photo",
+      "nom_francais": "photo de famille",
+      "nom_macedonien": "семејна фотографија"
+    },
+    {
+      "mot_anglais": "wall clock",
+      "nom_francais": "horloge murale",
+      "nom_macedonien": "ѕиден часовник"
+    },
+    {
+      "mot_anglais": "traditional pottery",
+      "nom_francais": "poterie traditionnelle",
+      "nom_macedonien": "традиционална грнчарија"
+    },
+    {
+      "mot_anglais": "Ohrid pottery",
+      "nom_francais": "poterie d'Ohrid",
+      "nom_macedonien": "охридска грнчарија"
+    },
+    {
+      "mot_anglais": "vase",
+      "nom_francais": "vase",
+      "nom_macedonien": "ваза"
+    },
+    {
+      "mot_anglais": "wooden sculpture",
+      "nom_francais": "sculpture en bois",
+      "nom_macedonien": "дрвена скулптура"
+    },
+    {
+      "mot_anglais": "silver filigree",
+      "nom_francais": "filigrane d'argent",
+      "nom_macedonien": "сребрен филигран"
+    },
+    {
+      "mot_anglais": "wicker basket",
+      "nom_francais": "panier en osier",
+      "nom_macedonien": "кошница од врба"
+    },
+    {
+      "mot_anglais": "copper tray",
+      "nom_francais": "plateau en cuivre",
+      "nom_macedonien": "бакарни тацни"
+    },
+    {
+      "mot_anglais": "tambura",
+      "nom_francais": "tambura",
+      "nom_macedonien": "тамбура"
+    },
+    {
+      "mot_anglais": "kaval",
+      "nom_francais": "kaval",
+      "nom_macedonien": "кавал"
+    },
+    {
+      "mot_anglais": "accordion",
+      "nom_francais": "accordéon",
+      "nom_macedonien": "хармоника"
+    },
+    {
+      "mot_anglais": "indoor plant",
+      "nom_francais": "plante d'intérieur",
+      "nom_macedonien": "собна растение"
+    },
+    {
+      "mot_anglais": "geranium",
+      "nom_francais": "géranium",
+      "nom_macedonien": "здравец"
+    },
+    {
+      "mot_anglais": "flower pot",
+      "nom_francais": "pot de fleurs",
+      "nom_macedonien": "саксија за цвеќе"
+    },
+    {
+      "mot_anglais": "rakija bottle",
+      "nom_francais": "bouteille de rakija",
+      "nom_macedonien": "шише ракија"
+    },
+    {
+      "mot_anglais": "coffee set",
+      "nom_francais": "service à café",
+      "nom_macedonien": "комплет за кафе"
+    },
+    {
+      "mot_anglais": "tea set",
+      "nom_francais": "service à thé",
+      "nom_macedonien": "комплет за чај"
+    },
+    {
+      "mot_anglais": "embroidered tablecloth",
+      "nom_francais": "nappe brodée",
+      "nom_macedonien": "везена чаршав"
+    },
+    {
+      "mot_anglais": "doily",
+      "nom_francais": "napperon",
+      "nom_macedonien": "мал чаршав"
+    },
+    {
+      "mot_anglais": "magazine rack",
+      "nom_francais": "porte-revues",
+      "nom_macedonien": "држи за списанија"
+    },
+    {
+      "mot_anglais": "storage basket",
+      "nom_francais": "panier de rangement",
+      "nom_macedonien": "кошница за чување"
+    }
+  ]
+}

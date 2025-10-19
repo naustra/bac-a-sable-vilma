@@ -1,0 +1,69 @@
+{
+  "theme": "toilette",
+  "titre": "Тоалет",
+  "colonnes": 3,
+  "images_par_element": 20,
+  "max_workers": 20,
+  "elements": [
+    {
+      "mot_anglais": "toilet",
+      "nom_francais": "toilettes",
+      "nom_macedonien": "тоалет"
+    },
+    {
+      "mot_anglais": "sink",
+      "nom_francais": "lavabo",
+      "nom_macedonien": "лавоабо"
+    },
+    {
+      "mot_anglais": "bathtub",
+      "nom_francais": "baignoire",
+      "nom_macedonien": "када"
+    },
+    {
+      "mot_anglais": "shower",
+      "nom_francais": "douche",
+      "nom_macedonien": "туш"
+    },
+    {
+      "mot_anglais": "towel",
+      "nom_francais": "serviette",
+      "nom_macedonien": "пешкир"
+    },
+    {
+      "mot_anglais": "mirror",
+      "nom_francais": "miroir",
+      "nom_macedonien": "огледало"
+    },
+    {
+      "mot_anglais": "soap",
+      "nom_francais": "savon",
+      "nom_macedonien": "сапун"
+    },
+    {
+      "mot_anglais": "toothbrush",
+      "nom_francais": "brosse à dents",
+      "nom_macedonien": "четка за заби"
+    },
+    {
+      "mot_anglais": "toothpaste",
+      "nom_francais": "dentifrice",
+      "nom_macedonien": "паста за заби"
+    },
+    {
+      "mot_anglais": "shampoo",
+      "nom_francais": "shampoing",
+      "nom_macedonien": "шампон"
+    },
+    {
+      "mot_anglais": "toilet paper",
+      "nom_francais": "papier toilette",
+      "nom_macedonien": "тоалетна хартија"
+    },
+    {
+      "mot_anglais": "bath mat",
+      "nom_francais": "tapis de bain",
+      "nom_macedonien": "бањски тепих"
+    }
+  ]
+}

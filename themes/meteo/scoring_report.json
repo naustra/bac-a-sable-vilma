@@ -1,14 +1,14 @@
 {
   "theme": "meteo",
   "titre": "Времето",
-  "date_analyse": "1760651042.308826",
+  "date_analyse": "1760893764.2716048",
   "elements": [
     {
       "nom_francais": "soleil",
       "nom_macedonien": "сонце",
       "requete_anglais": "sun",
       "image_selectionnee": "soleil_unsplash_3.jpg",
-      "total_images": 8,
+      "total_images": 9,
       "scores": [
         {
           "filename": "soleil_unsplash_3.jpg",
@@ -18,45 +18,51 @@
         },
         {
           "filename": "soleil_unsplash_1.jpg",
-          "score": 0.9446,
+          "score": 0.9336,
           "selected": false,
           "rank": 2
         },
         {
-          "filename": "soleil_unsplash_2.jpg",
-          "score": 0.9392,
+          "filename": "soleil_pexels_5.jpg",
+          "score": 0.907,
           "selected": false,
           "rank": 3
         },
         {
-          "filename": "soleil_pexels_4.jpg",
-          "score": 0.9207,
+          "filename": "soleil_pexels_1.jpg",
+          "score": 0.902,
           "selected": false,
           "rank": 4
         },
         {
-          "filename": "soleil_pexels_5.jpg",
-          "score": 0.9073,
+          "filename": "soleil_pexels_6.jpg",
+          "score": 0.9018,
           "selected": false,
           "rank": 5
         },
         {
-          "filename": "soleil_pexels_6.jpg",
-          "score": 0.9023,
+          "filename": "soleil_pexels_2.jpg",
+          "score": 0.901,
           "selected": false,
           "rank": 6
         },
         {
-          "filename": "soleil_pexels_1.jpg",
-          "score": 0.901,
+          "filename": "soleil_pexels_3.jpg",
+          "score": 0.9003,
           "selected": false,
           "rank": 7
         },
         {
-          "filename": "soleil_pexels_2.jpg",
-          "score": 0.9003,
+          "filename": "soleil_unsplash_2.jpg",
+          "score": 0.9002,
           "selected": false,
           "rank": 8
+        },
+        {
+          "filename": "soleil_pexels_4.jpg",
+          "score": 0.8981,
+          "selected": false,
+          "rank": 9
         }
       ]
     },
@@ -64,50 +70,56 @@
       "nom_francais": "nuage",
       "nom_macedonien": "облак",
       "requete_anglais": "cloud",
-      "image_selectionnee": "nuage_unsplash_2.jpg",
-      "total_images": 7,
+      "image_selectionnee": "nuage_unsplash_1.jpg",
+      "total_images": 8,
       "scores": [
         {
-          "filename": "nuage_unsplash_2.jpg",
-          "score": 0.9577,
+          "filename": "nuage_unsplash_1.jpg",
+          "score": 0.9586,
           "selected": true,
           "rank": 1
+        },
+        {
+          "filename": "nuage_unsplash_2.jpg",
+          "score": 0.9585,
+          "selected": false,
+          "rank": 2
         },
         {
           "filename": "nuage_unsplash_3.jpg",
           "score": 0.9486,
           "selected": false,
-          "rank": 2
-        },
-        {
-          "filename": "nuage_unsplash_1.jpg",
-          "score": 0.9436,
-          "selected": false,
           "rank": 3
         },
         {
-          "filename": "nuage_pexels_2.jpg",
-          "score": 0.9217,
+          "filename": "nuage_pexels_6.jpg",
+          "score": 0.9163,
           "selected": false,
           "rank": 4
         },
         {
-          "filename": "nuage_pexels_6.jpg",
-          "score": 0.9164,
+          "filename": "nuage_pexels_2.jpg",
+          "score": 0.9159,
           "selected": false,
           "rank": 5
         },
         {
-          "filename": "nuage_pexels_5.jpg",
-          "score": 0.9084,
+          "filename": "nuage_pexels_3.jpg",
+          "score": 0.9157,
           "selected": false,
           "rank": 6
         },
         {
-          "filename": "nuage_pexels_4.jpg",
-          "score": 0.8933,
+          "filename": "nuage_pexels_5.jpg",
+          "score": 0.9086,
           "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "nuage_pexels_4.jpg",
+          "score": 0.8932,
+          "selected": false,
+          "rank": 8
         }
       ]
     },
@@ -116,7 +128,7 @@
       "nom_macedonien": "дожд",
       "requete_anglais": "rain",
       "image_selectionnee": "pluie_unsplash_3.jpg",
-      "total_images": 7,
+      "total_images": 8,
       "scores": [
         {
           "filename": "pluie_unsplash_3.jpg",
@@ -125,40 +137,46 @@
           "rank": 1
         },
         {
-          "filename": "pluie_unsplash_2.jpg",
-          "score": 0.9549,
+          "filename": "pluie_pexels_5.jpg",
+          "score": 0.9529,
           "selected": false,
           "rank": 2
         },
         {
-          "filename": "pluie_pexels_5.jpg",
-          "score": 0.9529,
+          "filename": "pluie_pexels_6.jpg",
+          "score": 0.9405,
           "selected": false,
           "rank": 3
         },
         {
-          "filename": "pluie_pexels_4.jpg",
-          "score": 0.9443,
+          "filename": "pluie_unsplash_1.jpg",
+          "score": 0.8991,
           "selected": false,
           "rank": 4
         },
         {
-          "filename": "pluie_pexels_6.jpg",
-          "score": 0.9403,
+          "filename": "pluie_unsplash_2.jpg",
+          "score": 0.8969,
           "selected": false,
           "rank": 5
         },
         {
-          "filename": "pluie_unsplash_1.jpg",
-          "score": 0.9141,
+          "filename": "pluie_pexels_3.jpg",
+          "score": 0.8877,
           "selected": false,
           "rank": 6
         },
         {
           "filename": "pluie_pexels_2.jpg",
-          "score": 0.8619,
+          "score": 0.8877,
           "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "pluie_pexels_4.jpg",
+          "score": 0.8579,
+          "selected": false,
+          "rank": 8
         }
       ]
     },
@@ -166,24 +184,24 @@
       "nom_francais": "neige",
       "nom_macedonien": "снег",
       "requete_anglais": "snow",
-      "image_selectionnee": "neige_unsplash_1.jpg",
-      "total_images": 7,
+      "image_selectionnee": "neige_unsplash_2.jpg",
+      "total_images": 8,
       "scores": [
         {
-          "filename": "neige_unsplash_1.jpg",
-          "score": 0.9573,
+          "filename": "neige_unsplash_2.jpg",
+          "score": 0.9611,
           "selected": true,
           "rank": 1
         },
         {
-          "filename": "neige_pexels_4.jpg",
-          "score": 0.9498,
+          "filename": "neige_unsplash_1.jpg",
+          "score": 0.9436,
           "selected": false,
           "rank": 2
         },
         {
           "filename": "neige_unsplash_3.jpg",
-          "score": 0.9428,
+          "score": 0.9427,
           "selected": false,
           "rank": 3
         },
@@ -194,22 +212,28 @@
           "rank": 4
         },
         {
-          "filename": "neige_pexels_2.jpg",
-          "score": 0.9369,
+          "filename": "neige_pexels_4.jpg",
+          "score": 0.9354,
           "selected": false,
           "rank": 5
         },
         {
           "filename": "neige_pexels_6.jpg",
-          "score": 0.93,
+          "score": 0.9297,
           "selected": false,
           "rank": 6
         },
         {
-          "filename": "neige_unsplash_2.jpg",
-          "score": 0.9069,
+          "filename": "neige_pexels_2.jpg",
+          "score": 0.893,
           "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "neige_pexels_3.jpg",
+          "score": 0.8929,
+          "selected": false,
+          "rank": 8
         }
       ]
     },
@@ -217,50 +241,56 @@
       "nom_francais": "vent",
       "nom_macedonien": "ветер",
       "requete_anglais": "wind",
-      "image_selectionnee": "vent_unsplash_1.jpg",
-      "total_images": 7,
+      "image_selectionnee": "vent_unsplash_2.jpg",
+      "total_images": 8,
       "scores": [
         {
-          "filename": "vent_unsplash_1.jpg",
-          "score": 0.9471,
+          "filename": "vent_unsplash_2.jpg",
+          "score": 0.9356,
           "selected": true,
           "rank": 1
+        },
+        {
+          "filename": "vent_unsplash_1.jpg",
+          "score": 0.9319,
+          "selected": false,
+          "rank": 2
         },
         {
           "filename": "vent_pexels_6.jpg",
           "score": 0.9251,
           "selected": false,
-          "rank": 2
-        },
-        {
-          "filename": "vent_pexels_4.jpg",
-          "score": 0.9116,
-          "selected": false,
           "rank": 3
         },
         {
-          "filename": "vent_unsplash_3.jpg",
-          "score": 0.9042,
+          "filename": "vent_pexels_4.jpg",
+          "score": 0.9063,
           "selected": false,
           "rank": 4
         },
         {
-          "filename": "vent_pexels_5.jpg",
-          "score": 0.9002,
+          "filename": "vent_unsplash_3.jpg",
+          "score": 0.9041,
           "selected": false,
           "rank": 5
         },
         {
-          "filename": "vent_unsplash_2.jpg",
-          "score": 0.8884,
+          "filename": "vent_pexels_5.jpg",
+          "score": 0.9,
           "selected": false,
           "rank": 6
         },
         {
-          "filename": "vent_pexels_2.jpg",
-          "score": 0.8552,
+          "filename": "vent_pexels_3.jpg",
+          "score": 0.8668,
           "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "vent_pexels_2.jpg",
+          "score": 0.8665,
+          "selected": false,
+          "rank": 8
         }
       ]
     },
@@ -269,7 +299,7 @@
       "nom_macedonien": "бура",
       "requete_anglais": "storm",
       "image_selectionnee": "orage_pexels_5.jpg",
-      "total_images": 7,
+      "total_images": 8,
       "scores": [
         {
           "filename": "orage_pexels_5.jpg",
@@ -278,40 +308,46 @@
           "rank": 1
         },
         {
-          "filename": "orage_pexels_2.jpg",
-          "score": 0.9451,
-          "selected": false,
-          "rank": 2
-        },
-        {
           "filename": "orage_unsplash_2.jpg",
           "score": 0.9442,
           "selected": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "filename": "orage_unsplash_3.jpg",
           "score": 0.9393,
           "selected": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "filename": "orage_pexels_6.jpg",
           "score": 0.9371,
           "selected": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "filename": "orage_unsplash_1.jpg",
           "score": 0.9311,
           "selected": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "filename": "orage_pexels_4.jpg",
           "score": 0.9236,
           "selected": false,
+          "rank": 6
+        },
+        {
+          "filename": "orage_pexels_2.jpg",
+          "score": 0.8893,
+          "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "orage_pexels_1.jpg",
+          "score": 0.8819,
+          "selected": false,
+          "rank": 8
         }
       ]
     },
@@ -320,7 +356,7 @@
       "nom_macedonien": "молња",
       "requete_anglais": "lightning",
       "image_selectionnee": "eclair_pexels_5.jpg",
-      "total_images": 7,
+      "total_images": 8,
       "scores": [
         {
           "filename": "eclair_pexels_5.jpg",
@@ -329,40 +365,148 @@
           "rank": 1
         },
         {
+          "filename": "eclair_unsplash_2.jpg",
+          "score": 0.9604,
+          "selected": false,
+          "rank": 2
+        },
+        {
           "filename": "eclair_pexels_6.jpg",
           "score": 0.9571,
           "selected": false,
-          "rank": 2
+          "rank": 3
         },
         {
           "filename": "eclair_unsplash_1.jpg",
           "score": 0.9562,
           "selected": false,
-          "rank": 3
+          "rank": 4
         },
         {
           "filename": "eclair_unsplash_3.jpg",
           "score": 0.9559,
           "selected": false,
-          "rank": 4
-        },
-        {
-          "filename": "eclair_unsplash_2.jpg",
-          "score": 0.9529,
-          "selected": false,
           "rank": 5
         },
         {
           "filename": "eclair_pexels_4.jpg",
-          "score": 0.949,
+          "score": 0.8557,
           "selected": false,
           "rank": 6
         },
         {
-          "filename": "eclair_pexels_2.jpg",
-          "score": 0.9447,
+          "filename": "eclair_pexels_3.jpg",
+          "score": 0.8371,
           "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "eclair_pexels_2.jpg",
+          "score": 0.8364,
+          "selected": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "nom_francais": "brouillard",
+      "nom_macedonien": "магла",
+      "requete_anglais": "fog",
+      "image_selectionnee": "brouillard_unsplash_2.jpg",
+      "total_images": 3,
+      "scores": [
+        {
+          "filename": "brouillard_unsplash_2.jpg",
+          "score": 0.9577,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "brouillard_pexels_3.jpg",
+          "score": 0.8813,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "brouillard_pexels_4.jpg",
+          "score": 0.8557,
+          "selected": false,
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "nom_francais": "brume",
+      "nom_macedonien": "измаглица",
+      "requete_anglais": "mist",
+      "image_selectionnee": "brume_unsplash_2.jpg",
+      "total_images": 4,
+      "scores": [
+        {
+          "filename": "brume_unsplash_2.jpg",
+          "score": 0.9521,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "brume_unsplash_1.jpg",
+          "score": 0.9445,
+          "selected": false,
+          "rank": 2
+        },
+        {
+          "filename": "brume_pexels_4.jpg",
+          "score": 0.9229,
+          "selected": false,
+          "rank": 3
+        },
+        {
+          "filename": "brume_pexels_3.jpg",
+          "score": 0.881,
+          "selected": false,
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "nom_francais": "grêle",
+      "nom_macedonien": "град",
+      "requete_anglais": "hail",
+      "image_selectionnee": "grêle_pexels_2.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "grêle_pexels_2.jpg",
+          "score": 0.8618,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "grêle_pexels_1.jpg",
+          "score": 0.8428,
+          "selected": false,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "nom_francais": "tonnerre",
+      "nom_macedonien": "грмотевица",
+      "requete_anglais": "thunder",
+      "image_selectionnee": "tonnerre_pexels_2.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "tonnerre_pexels_2.jpg",
+          "score": 0.8854,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "tonnerre_pexels_1.jpg",
+          "score": 0.8705,
+          "selected": false,
+          "rank": 2
         }
       ]
     },
@@ -371,7 +515,7 @@
       "nom_macedonien": "виножито",
       "requete_anglais": "rainbow",
       "image_selectionnee": "arc-en-ciel_pexels_6.jpg",
-      "total_images": 7,
+      "total_images": 8,
       "scores": [
         {
           "filename": "arc-en-ciel_pexels_6.jpg",
@@ -381,39 +525,171 @@
         },
         {
           "filename": "arc-en-ciel_unsplash_1.jpg",
-          "score": 0.9442,
+          "score": 0.9438,
           "selected": false,
           "rank": 2
         },
         {
-          "filename": "arc-en-ciel_pexels_4.jpg",
-          "score": 0.9259,
+          "filename": "arc-en-ciel_pexels_1.jpg",
+          "score": 0.9333,
           "selected": false,
           "rank": 3
         },
         {
-          "filename": "arc-en-ciel_unsplash_3.jpg",
-          "score": 0.916,
+          "filename": "arc-en-ciel_pexels_4.jpg",
+          "score": 0.9273,
           "selected": false,
           "rank": 4
+        },
+        {
+          "filename": "arc-en-ciel_unsplash_3.jpg",
+          "score": 0.9162,
+          "selected": false,
+          "rank": 5
         },
         {
           "filename": "arc-en-ciel_unsplash_2.jpg",
           "score": 0.9148,
           "selected": false,
-          "rank": 5
-        },
-        {
-          "filename": "arc-en-ciel_pexels_5.jpg",
-          "score": 0.9123,
-          "selected": false,
           "rank": 6
         },
         {
-          "filename": "arc-en-ciel_pexels_2.jpg",
-          "score": 0.858,
+          "filename": "arc-en-ciel_pexels_5.jpg",
+          "score": 0.9126,
           "selected": false,
           "rank": 7
+        },
+        {
+          "filename": "arc-en-ciel_pexels_2.jpg",
+          "score": 0.872,
+          "selected": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "nom_francais": "température",
+      "nom_macedonien": "температура",
+      "requete_anglais": "temperature",
+      "image_selectionnee": "température_pexels_2.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "température_pexels_2.jpg",
+          "score": 0.8983,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "température_pexels_1.jpg",
+          "score": 0.8727,
+          "selected": false,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "nom_francais": "chaud",
+      "nom_macedonien": "топло",
+      "requete_anglais": "hot",
+      "image_selectionnee": "chaud_pexels_1.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "chaud_pexels_1.jpg",
+          "score": 0.8798,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "chaud_pexels_2.jpg",
+          "score": 0.8717,
+          "selected": false,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "nom_francais": "froid",
+      "nom_macedonien": "студено",
+      "requete_anglais": "cold",
+      "image_selectionnee": "froid_pexels_2.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "froid_pexels_2.jpg",
+          "score": 0.9143,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "froid_pexels_1.jpg",
+          "score": 0.8767,
+          "selected": false,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "nom_francais": "orageux",
+      "nom_macedonien": "бурано",
+      "requete_anglais": "stormy",
+      "image_selectionnee": "orageux_pexels_1.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "orageux_pexels_1.jpg",
+          "score": 0.8874,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "orageux_pexels_2.jpg",
+          "score": 0.884,
+          "selected": false,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "nom_francais": "ensoleillé",
+      "nom_macedonien": "сончево",
+      "requete_anglais": "sunny",
+      "image_selectionnee": "ensoleillé_pexels_1.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "ensoleillé_pexels_1.jpg",
+          "score": 0.9088,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "ensoleillé_pexels_2.jpg",
+          "score": 0.9077,
+          "selected": false,
+          "rank": 2
+        }
+      ]
+    },
+    {
+      "nom_francais": "nuageux",
+      "nom_macedonien": "облачно",
+      "requete_anglais": "cloudy",
+      "image_selectionnee": "nuageux_pexels_2.jpg",
+      "total_images": 2,
+      "scores": [
+        {
+          "filename": "nuageux_pexels_2.jpg",
+          "score": 0.8867,
+          "selected": true,
+          "rank": 1
+        },
+        {
+          "filename": "nuageux_pexels_1.jpg",
+          "score": 0.8814,
+          "selected": false,
+          "rank": 2
         }
       ]
     }

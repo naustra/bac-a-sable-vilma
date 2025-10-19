@@ -16,12 +16,14 @@
     {
       "nom_macedonien": "нос",
       "nom_francais": "nez",
-      "image_selectionnee": "nez_unsplash_1.jpg"
+      "image_selectionnee": "nez_unsplash_1.jpg",
+      "nom_anglais": "nose"
     },
     {
       "nom_macedonien": "уста",
       "nom_francais": "bouche",
-      "image_selectionnee": "bouche_pexels_6.jpg"
+      "image_selectionnee": "bouche_pexels_6.jpg",
+      "nom_anglais": "mouth"
     },
     {
       "nom_macedonien": "рака",
@@ -51,7 +53,8 @@
     {
       "nom_macedonien": "коса",
       "nom_francais": "cheveux",
-      "image_selectionnee": "cheveux_unsplash_2.jpg"
+      "image_selectionnee": "cheveux_unsplash_2.jpg",
+      "nom_anglais": "hair"
     }
   ]
 }

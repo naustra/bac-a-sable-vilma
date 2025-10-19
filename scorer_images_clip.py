@@ -43,7 +43,7 @@ class CLIPImageScorer:
     def score_image(self, image_path: str, text_query: str) -> float:
         """
         Calcule le score de similarité entre une image et une requête textuelle
-        Privilégie MASSIVEMENT les illustrations et animations adaptées aux enfants
+        Privilégie des images de qualité professionnelle et non trash
 
         Args:
             image_path: Chemin vers l'image
@@ -53,24 +53,18 @@ class CLIPImageScorer:
             Score de similarité entre 0 et 1
         """
         try:
-            # BONUS : Privilégier les images avec des mots-clés "cartoon" ou "illustration" dans le nom
-            filename = os.path.basename(image_path).lower()
-            is_cartoon_or_illustration = any(keyword in filename for keyword in [
-                'cartoon', 'illustration', 'drawing', 'animated', 'cute', 'friendly'
-            ])
-
             # Charger et traiter l'image
             image = Image.open(image_path).convert("RGB")
 
-            # Créer des requêtes simples et efficaces
+            # Créer des requêtes pour privilégier des images de qualité
             text_queries = [
-                # Priorité élevée : illustrations adaptées aux enfants
-                f"cartoon {text_query} for children",
-                f"cute illustration of {text_query}",
-                f"friendly {text_query} for kids",
-                # Priorité moyenne : photos adaptées aux enfants
-                f"cute {text_query}",
-                f"friendly {text_query}",
+                # Priorité élevée : photos professionnelles de qualité
+                f"professional photo of {text_query}",
+                f"high quality image of {text_query}",
+                f"clean {text_query}",
+                # Priorité moyenne : images génériques mais de bonne qualité
+                f"clear {text_query}",
+                f"good {text_query}",
                 # Priorité faible : générique
                 text_query
             ]
@@ -90,14 +84,14 @@ class CLIPImageScorer:
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
 
-                # Ponderer les scores de manière simple et efficace
+                # Ponderer les scores pour privilégier la qualité
                 weights = torch.tensor([
-                    1.5,  # cartoon for children (priorité élevée)
-                    1.3,  # cute illustration
-                    1.2,  # friendly for kids
-                    1.0,  # cute
-                    1.0,  # friendly
-                    0.8   # générique
+                    1.3,  # professional photo (priorité élevée)
+                    1.2,  # high quality image
+                    1.1,  # clean
+                    1.0,  # clear
+                    1.0,  # good
+                    0.9   # générique
                 ]).to(self.device)
 
                 # Appliquer les poids et prendre le score maximum
@@ -106,10 +100,6 @@ class CLIPImageScorer:
 
                 # Normaliser entre 0 et 1 avec une fonction sigmoid
                 normalized_score = 1 / (1 + torch.exp(-max_score / 10))
-
-                # BONUS simple : Ajouter un petit boost pour les images avec des mots-clés "cartoon"
-                if is_cartoon_or_illustration:
-                    normalized_score = min(1.0, normalized_score + 0.1)  # Boost de 10%
 
             return float(normalized_score.item())
 
@@ -173,12 +163,12 @@ class CLIPImageScorer:
             if not images:
                 return []
 
-            # Créer des requêtes alternatives pour plus de précision
+            # Créer des requêtes pour privilégier des images de qualité
             text_queries = [
-                text_query,
-                f"a photo of {text_query}",
-                f"image of {text_query}",
-                f"picture showing {text_query}"
+                f"professional photo of {text_query}",
+                f"high quality image of {text_query}",
+                f"clear {text_query}",
+                text_query
             ]
 
             # Traiter le batch complet
@@ -197,11 +187,20 @@ class CLIPImageScorer:
                 outputs = self.model(**inputs)
                 logits_per_image = outputs.logits_per_image
 
-                # Pour chaque image, prendre le meilleur score parmi les requêtes
+                # Ponderer les scores pour privilégier la qualité
+                weights = torch.tensor([
+                    1.3,  # professional photo
+                    1.2,  # high quality image
+                    1.1,  # clear
+                    1.0   # générique
+                ]).to(self.device)
+
+                # Pour chaque image, calculer le score pondéré
                 batch_scores = []
                 for i in range(len(images)):
                     image_logits = logits_per_image[i]
-                    max_score = torch.max(image_logits)
+                    weighted_scores = image_logits * weights
+                    max_score = torch.max(weighted_scores)
                     # Normaliser entre 0 et 1 avec une fonction sigmoid
                     normalized_score = 1 / (1 + torch.exp(-max_score / 10))
                     batch_scores.append(float(normalized_score.item()))
